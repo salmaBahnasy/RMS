@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "newRMSmobile.app"
-               BlueprintName = "newRMSmobile"
-               ReferencedContainer = "container:newRMSmobile.xcodeproj">
+               BuildableName = "HRMS.app"
+               BlueprintName = "HRMS"
+               ReferencedContainer = "container:HRMS.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "newRMSmobileTests.xctest"
-               BlueprintName = "newRMSmobileTests"
-               ReferencedContainer = "container:newRMSmobile.xcodeproj">
+               BuildableName = "HRMSTests.xctest"
+               BlueprintName = "HRMSTests"
+               ReferencedContainer = "container:HRMS.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "newRMSmobile.app"
-            BlueprintName = "newRMSmobile"
-            ReferencedContainer = "container:newRMSmobile.xcodeproj">
+            BuildableName = "HRMS.app"
+            BlueprintName = "HRMS"
+            ReferencedContainer = "container:HRMS.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "newRMSmobile.app"
-            BlueprintName = "newRMSmobile"
-            ReferencedContainer = "container:newRMSmobile.xcodeproj">
+            BuildableName = "HRMS.app"
+            BlueprintName = "HRMS"
+            ReferencedContainer = "container:HRMS.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

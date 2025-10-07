@@ -12,20 +12,20 @@
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		BD43232F2CDB8A54006BC03C /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
-		EAF12E16D61F3E4AD38C9356 /* libPods-newRMSmobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD53C90D3E4FFB2D22C5287 /* libPods-newRMSmobile.a */; };
+		EAF12E16D61F3E4AD38C9356 /* libPods-HRMS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD53C90D3E4FFB2D22C5287 /* libPods-HRMS.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		13B07F961A680F5B00A75B9A /* newRMSmobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = newRMSmobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = newRMSmobile/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = newRMSmobile/Info.plist; sourceTree = "<group>"; };
-		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = newRMSmobile/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		16D19AC8446E2773D88DAB16 /* Pods-newRMSmobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-newRMSmobile.debug.xcconfig"; path = "Target Support Files/Pods-newRMSmobile/Pods-newRMSmobile.debug.xcconfig"; sourceTree = "<group>"; };
-		3633F6BCA83B93C8A00953DF /* Pods-newRMSmobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-newRMSmobile.release.xcconfig"; path = "Target Support Files/Pods-newRMSmobile/Pods-newRMSmobile.release.xcconfig"; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* HRMS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HRMS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "HRMS/Images.xcassets"; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "HRMS/Info.plist"; sourceTree = "<group>"; };
+		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = HRMS/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		16D19AC8446E2773D88DAB16 /* Pods-HRMS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HRMS.debug.xcconfig"; path = "Target Support Files/Pods-HRMS/Pods-HRMS.debug.xcconfig"; sourceTree = "<group>"; };
+		3633F6BCA83B93C8A00953DF /* Pods-HRMS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HRMS.release.xcconfig"; path = "Target Support Files/Pods-HRMS/Pods-HRMS.release.xcconfig"; sourceTree = "<group>"; };
 		38CBBDA52E928D5800D188B0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		6AD53C90D3E4FFB2D22C5287 /* libPods-newRMSmobile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-newRMSmobile.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = newRMSmobile/AppDelegate.swift; sourceTree = "<group>"; };
-		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = newRMSmobile/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6AD53C90D3E4FFB2D22C5287 /* libPods-HRMS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HRMS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = HRMS/AppDelegate.swift; sourceTree = "<group>"; };
+		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = "HRMS/LaunchScreen.storyboard"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -34,14 +34,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EAF12E16D61F3E4AD38C9356 /* libPods-newRMSmobile.a in Frameworks */,
+				EAF12E16D61F3E4AD38C9356 /* libPods-HRMS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		13B07FAE1A68108700A75B9A /* newRMSmobile */ = {
+		13B07FAE1A68108700A75B9A /* HRMS */ = {
 			isa = PBXGroup;
 			children = (
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -50,14 +50,14 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
 			);
-			name = newRMSmobile;
+			name = "HRMS";
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				6AD53C90D3E4FFB2D22C5287 /* libPods-newRMSmobile.a */,
+				6AD53C90D3E4FFB2D22C5287 /* libPods-HRMS.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -72,7 +72,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* newRMSmobile */,
+				13B07FAE1A68108700A75B9A /* HRMS */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
@@ -87,7 +87,7 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* newRMSmobile.app */,
+				13B07F961A680F5B00A75B9A /* HRMS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,8 +95,8 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				16D19AC8446E2773D88DAB16 /* Pods-newRMSmobile.debug.xcconfig */,
-				3633F6BCA83B93C8A00953DF /* Pods-newRMSmobile.release.xcconfig */,
+				16D19AC8446E2773D88DAB16 /* Pods-HRMS.debug.xcconfig */,
+				3633F6BCA83B93C8A00953DF /* Pods-HRMS.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -104,9 +104,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		13B07F861A680F5B00A75B9A /* newRMSmobile */ = {
+		13B07F861A680F5B00A75B9A /* HRMS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "newRMSmobile" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "HRMS" */;
 			buildPhases = (
 				86C6B2EAC73B3F1E6AD561A9 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
@@ -121,9 +121,9 @@
 			);
 			dependencies = (
 			);
-			name = newRMSmobile;
-			productName = newRMSmobile;
-			productReference = 13B07F961A680F5B00A75B9A /* newRMSmobile.app */;
+			name = "HRMS";
+			productName = "HRMS";
+			productReference = 13B07F961A680F5B00A75B9A /* HRMS.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -139,7 +139,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "newRMSmobile" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "HRMS" */;
 			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -152,7 +152,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* newRMSmobile */,
+				13B07F861A680F5B00A75B9A /* HRMS */,
 			);
 		};
 /* End PBXProject section */
@@ -194,15 +194,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-newRMSmobile/Pods-newRMSmobile-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-HRMS/Pods-HRMS-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-newRMSmobile/Pods-newRMSmobile-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-HRMS/Pods-HRMS-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-newRMSmobile/Pods-newRMSmobile-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HRMS/Pods-HRMS-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		839EA1CFEA5496271F1D30AB /* [CP-User] [RNFB] Core Configuration */ = {
@@ -233,7 +233,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-newRMSmobile-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-HRMS-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -246,15 +246,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-newRMSmobile/Pods-newRMSmobile-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-HRMS/Pods-HRMS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-newRMSmobile/Pods-newRMSmobile-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-HRMS/Pods-HRMS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-newRMSmobile/Pods-newRMSmobile-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HRMS/Pods-HRMS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -273,14 +273,15 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 16D19AC8446E2773D88DAB16 /* Pods-newRMSmobile.debug.xcconfig */;
+			baseConfigurationReference = 16D19AC8446E2773D88DAB16 /* Pods-HRMS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 53RUVFN4VX;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = newRMSmobile/Info.plist;
+				INFOPLIST_FILE = "HRMS/Info.plist";
+             INFOPLIST_KEY_CFBundleDisplayName = "HRMS";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -292,8 +293,8 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = newRMSmobile;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.aldawal.hrms";
+				PRODUCT_NAME = "HRMS";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -302,13 +303,14 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3633F6BCA83B93C8A00953DF /* Pods-newRMSmobile.release.xcconfig */;
+			baseConfigurationReference = 3633F6BCA83B93C8A00953DF /* Pods-HRMS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 53RUVFN4VX;
-				INFOPLIST_FILE = newRMSmobile/Info.plist;
+				INFOPLIST_FILE = "HRMS/Info.plist";
+             INFOPLIST_KEY_CFBundleDisplayName = "HRMS";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -320,8 +322,8 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = newRMSmobile;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.aldawal.hrms";
+				PRODUCT_NAME = "HRMS";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -474,7 +476,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "newRMSmobile" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "HRMS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -483,7 +485,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "newRMSmobile" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "HRMS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
