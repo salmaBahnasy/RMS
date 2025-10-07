@@ -428,7 +428,8 @@
   "select_driver": "Select Driver",
   "not_specified": "Not Found",
   "noProjectsFound": "No projects found",
-  "no_drivers": "No drivers available"
+  "no_drivers": "No drivers available",
+  "ok":"Ok"
 
 
 }

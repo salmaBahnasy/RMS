@@ -49,7 +49,7 @@ const ReportsViewList: React.FC<ReportsViewListProps> = ({ data }) => {
                
             }}
             contentContainerStyle={{
-                paddingBottom: 200,
+                paddingBottom: 100,
                 // paddingLeft:20,
                 // paddingRight:20,
                 width: '100%',

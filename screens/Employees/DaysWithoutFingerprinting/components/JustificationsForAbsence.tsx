@@ -30,7 +30,7 @@ import {COLORS, FONTS} from '../../../../constants/theme';
 import MainTextInput from '../../../common/components/MainTextInput';
 import images from '../../../../constants/images';
 import MainButton from '../../../common/components/MainButton';
-import DocumentPicker from 'react-native-document-picker';
+import { pick } from '@react-native-documents/picker';
 import {postAbsenceJustification} from '../services/services';
 import FeedBackModal from '../../../common/components/FeedBackModal';
 import SubHeader from '../../../common/components/SubHeader';
@@ -59,16 +59,18 @@ const JustificationsForAbsence: React.FC = () => {
 
   const pickFile = async () => {
     try {
-      const res = await DocumentPicker.pick({
-        type: [DocumentPicker.types.allFiles], // يسمح باختيار أي نوع من الملفات
-      });
-      setSelectedFile(res[0].name); // حفظ اسم الملف المختار
-    } catch (err) {
-      if (DocumentPicker.isCancel(err)) {
-        console.log('تم إلغاء اختيار الملف');
+      // مفيش arguments هنا — المكتبة الجديدة بتشتغل كده
+      const result = await pick();
+
+      if (result && result[0]) {
+        console.log('📁 URI:', result[0].uri);
+        console.log('📄 الاسم:', result[0].name);
+        setSelectedFile(result[0].name);
       } else {
-        console.error(err);
+        console.log('❌ تم إلغاء اختيار الملف');
       }
+    } catch (err) {
+      console.error('⚠️ خطأ أثناء اختيار الملف:', err);
     }
   };
 

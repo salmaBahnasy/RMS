@@ -22,6 +22,7 @@ import { COLORS } from '../../constants/theme';
 import { RootStackParamList } from '../../navigation/types';
 import { isTokenExpired } from './services';
 import { biometricAuth } from '../Login/services/services';
+import { applyAndroidLocale } from '../Profile/Services/services';
 
 interface SplashScreenProps {
   navigation: StackNavigationProp<RootStackParamList, 'SplashScreen'>;
@@ -134,6 +135,8 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ navigation }) => {
 
     let language = await AsyncStorage.getItem(LANGUAGE_KEY);
     console.log('language:', language);
+    applyAndroidLocale(language);
+
 
     // لو أول مرة يفتح التطبيق
     if (!language) {

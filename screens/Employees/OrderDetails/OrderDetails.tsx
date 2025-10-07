@@ -92,7 +92,14 @@ const OrderDetails = ({ route }: OrderDetailsScreenProps) => {
       setFeedBackImage(images?.success)
       
     } else {
-      Alert.alert(approve?.message?.content || 'somthing wrong !')
+      Alert.alert(
+        "",
+        approve?.message?.content || 'somthing wrong !',
+        [
+          { text: t('ok', { defaultValue: 'OK' }) } // هنا الترجمة
+        ],
+        { cancelable: true }
+      )
     }
     setTimeout(() => {
       setfeedBack(false);
@@ -108,7 +115,13 @@ const OrderDetails = ({ route }: OrderDetailsScreenProps) => {
       setfeedBackmsg(t('approvalrejectsuccess'));
       setFeedBackImage(images?.fail)
     } else {
-      Alert.alert(approve?.message?.content || 'somthing wrong !')
+      Alert.alert("",
+        approve?.message?.content || 'somthing wrong !',
+        [
+          { text: t('ok', { defaultValue: 'OK' }) } // هنا الترجمة
+        ],
+        { cancelable: true }
+      )
     }
     setTimeout(() => {
       setfeedBack(false);

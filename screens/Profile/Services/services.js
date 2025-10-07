@@ -10,6 +10,16 @@ import {
   getUserDetails,
 } from '../../../constants/ServicesNames';
 import { BaseURL } from '../../../constants/BaseUrl';
+
+// locale-bridge.ts
+import { NativeModules, Platform } from 'react-native';
+
+export const applyAndroidLocale = langTag => {
+  if (Platform.OS === 'android' && NativeModules.LocaleModule) {
+    NativeModules.LocaleModule.setAppLocale(langTag); // 'ar' أو 'en-US'
+  }
+};
+
 const changeLanguage = async (lng, i18n) => {
   try {
     // Change the language in i18n
@@ -17,6 +27,11 @@ const changeLanguage = async (lng, i18n) => {
     // Save the selected language to AsyncStorage
     await AsyncStorage.setItem('user-language', lng);
     // Configure RTL if the selected language is Arabic
+    const lang = i18n.language.startsWith('ar') ? 'ar' : 'en';
+    applyAndroidLocale(lang);
+    // عادةً AppCompatDelegate بيعمل إعادة إنشاء Activity تلقائيًا.
+    // لو ما اتعرّبتش فورًا، اعملي إعادة تشغيل شاشة/Activity أو استخدمي RNRestart.
+
     if (lng === 'ar') {
       I18nManager.forceRTL(true);
       I18nManager.allowRTL(true);
@@ -48,7 +63,7 @@ const ChangePasswordApi = async (
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        "Accept-Language":I18nManager.isRTL?"ar":"en"
+        'Accept-Language': I18nManager.isRTL ? 'ar' : 'en',
       },
       body: JSON.stringify(data),
     });
@@ -103,7 +118,7 @@ const removeAppKeys = async () => {
       'useAuth',
       'FCM',
       'email',
-      'password'
+      'password',
     ]);
     console.log('All keys removed, user completely logged out');
   } catch (e) {
@@ -117,9 +132,9 @@ const getDataEmpDetails = async () => {
   const storedEmpId = await AsyncStorage.getItem('empId');
   const empId = storedEmpId ? JSON.parse(storedEmpId) : 0;
   const userToken = await AsyncStorage.getItem('userToken');
-     console.log('userToken', userToken)
+  console.log('userToken', userToken);
   console.log('userId', userId);
-  console.log('empId', empId)
+  console.log('empId', empId);
 
   const url =
     empId === 0
@@ -132,8 +147,8 @@ const getDataEmpDetails = async () => {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        "Accept-Language":I18nManager.isRTL?"ar":"en",
-        'Authorization': `Bearer ${userToken}`,
+        'Accept-Language': I18nManager.isRTL ? 'ar' : 'en',
+        Authorization: `Bearer ${userToken}`,
       },
     });
 
@@ -141,7 +156,7 @@ const getDataEmpDetails = async () => {
 
     if (response.ok) {
       const data = await response.json();
-       console.log('Data:', data);
+      console.log('Data:', data);
       return data;
     } else {
       console.error(
@@ -159,21 +174,28 @@ const getDataEmpDetails = async () => {
   }
 };
 
-
-const formatDateHijri = (date) => {
-  moment.locale(I18nManager.isRTL ? 'ar-sa' : "en");
-  return momentHijri(date).format('iDD iMMMM iYYYY'); 
+const formatDateHijri = date => {
+  moment.locale(I18nManager.isRTL ? 'ar-sa' : 'en');
+  return momentHijri(date).format('iDD iMMMM iYYYY');
 };
 
-const formatDate = (date) => {
-  moment.locale(I18nManager.isRTL ? 'ar-sa' : "en");
+const formatDate = date => {
+  moment.locale(I18nManager.isRTL ? 'ar-sa' : 'en');
   return moment(date).format('DD MMMM YYYY');
 };
 
-const formatDayName = (date) => {
-  moment.locale(I18nManager.isRTL ? 'ar-sa' : "en");
+const formatDayName = date => {
+  moment.locale(I18nManager.isRTL ? 'ar-sa' : 'en');
   return moment(date).format('dddd');
 };
 
-
-export { changeLanguage, ChangePasswordApi, logoutFun, getDataEmpDetails, removeAppKeys, formatDate, formatDayName, formatDateHijri };
+export {
+  changeLanguage,
+  ChangePasswordApi,
+  logoutFun,
+  getDataEmpDetails,
+  removeAppKeys,
+  formatDate,
+  formatDayName,
+  formatDateHijri,
+};

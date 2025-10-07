@@ -311,8 +311,8 @@ const MalfunctionRequests: React.FC = () => {
   style={{
     marginLeft: 12,
     ...styles.StatusView,
-    backgroundColor: COLORS?.lightbgGreen,
-    borderColor: equipment.isFixed ? '#07B263' : '#EF233C',
+    backgroundColor:equipment.isFixed ?COLORS?.lightbgGreen: COLORS?.redOpacity,//, COLORS?.lightbgGreen,
+    borderColor: equipment.isFixed ? '#07B263' : COLORS?.red,
     paddingHorizontal: 14, // 👈 أوسع
     paddingVertical: 8,    // 👈 أطول
     borderRadius: 999,

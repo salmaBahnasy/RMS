@@ -8,6 +8,10 @@ import messaging from '@react-native-firebase/messaging';
 import i18n from './localization/i18n'; // إعداد الترجمة
 import Navigation from './navigation/navigation'; // ملف التنقل الخاص بك
 import {Alert, StatusBar} from 'react-native';
+import { registerTranslation, en, ar } from 'react-native-paper-dates';
+registerTranslation('en', en);
+registerTranslation('ar', ar);
+
 
 function App(): JSX.Element {
   useEffect(() => {

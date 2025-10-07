@@ -77,12 +77,13 @@ const Login: React.FC = () => {
     const result = await biometricAuth();
     console.log('Biometric result...', result);
 
-    if (result === 'successful biometrics provided') {
+    if (result === true) {
       return true; // البصمة نجحت
     }
 
-    if (result === 'Biometrics not supported') {
-      return true; // الجهاز مش بيدعم البصمة → يسمح له بالدخول بعد التحقق من اليوزر والباسورد
+    if (result ===false) {
+
+      return false; // الجهاز مش بيدعم البصمة → يسمح له بالدخول بعد التحقق من اليوزر والباسورد
     }
 
     Alert.alert('خطأ', 'فشل التحقق بالبصمة. حاول مرة أخرى.');
@@ -159,6 +160,7 @@ const Login: React.FC = () => {
           navigation.replace('Home');
         } else {
           setloginError('فشل تسجيل الدخول بالبصمة.');
+          setIsloading(false);
         }
       } else {
         setloginError(loginResponse?.result?.message || 'حدث خطأ ما !!');

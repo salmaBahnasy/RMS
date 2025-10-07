@@ -173,7 +173,14 @@ const VacationRequest: React.FC<VacationRequestProps> = () => {
         image: null,
       });
     } else {
-      Alert.alert(onSubmitres?.result?.message?.content || t('somthingwrong'));
+      Alert.alert(
+        ""
+      ,onSubmitres?.result?.message?.content || t('somthingwrong'),
+      [
+        { text: t('ok', { defaultValue: 'OK' }) } // هنا الترجمة
+      ],
+      { cancelable: true }
+    );
     }
   };
 

@@ -16,11 +16,13 @@ import { useNavigation } from '@react-navigation/native';
 import { COLORS, icons, images, FONTS } from '../../../constants';
 import { ProfileScreenNavigationProp } from '../../../navigation/types';
 import { getDataEmpDetails } from '../../Profile/Services/services';
+import Loader from '../../common/components/Loader';
 
 const UserInfoCard: React.FC = () => {
   const navigation = useNavigation<ProfileScreenNavigationProp>();
   const { t, i18n } = useTranslation();
   const [employeeName, setEmployeeName] = useState<string>('');
+  const [isloading, setisloading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchName = async () => {
@@ -31,9 +33,11 @@ const UserInfoCard: React.FC = () => {
         if (result) {
           const name = i18n.language === 'ar' ? result.nameAr : result.nameEn;
           setEmployeeName(name);
+          setisloading(false)
         }
       } catch (err) {
         console.error('Error fetching name:', err);
+        setisloading(false)
       }
     };
 
@@ -41,7 +45,9 @@ const UserInfoCard: React.FC = () => {
   }, []);
 
   return (
-    <TouchableOpacity
+  isloading?
+  <Loader/>
+  :  <TouchableOpacity
       onPress={() => navigation.navigate('Profile')}
       style={styles.container}
     >

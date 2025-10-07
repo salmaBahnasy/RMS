@@ -435,7 +435,8 @@
   "select_driver": "اختر السائق",
   "not_specified": "لايوجد ",
   "noProjectsFound": "لا توجد مشاريع متاحة",
-  "no_drivers": "لا يوجد سائقين"
+  "no_drivers": "لا يوجد سائقين",
+  "ok":"حسنا"
 }
 
 

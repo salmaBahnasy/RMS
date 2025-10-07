@@ -249,27 +249,39 @@ const biometricAuth = async () => {
     if (biometryType === BiometryTypes.Biometrics) {
       console.log('Biometrics is supported');
       const result = await authenticate();
+      console.log(result)
       val = result;
+      return result
     }
     if (biometryType === BiometryTypes.TouchID) {
       console.log('TouchID is supported');
       const result = await authenticate();
       val = result;
+      return result
+
     }
     if (biometryType === BiometryTypes.FaceID) {
       console.log('FaceID is supported');
       const result = await authenticate();
       val = result;
+      return result
+
     } else {
       console.log('Biometrics not supported');
       val = 'Biometrics not supported';
+      return false
+
     }
     if (val != '') {
-      return val
+      console.log("val",val)
+
+      // return val
     }
+
   } catch (error) {
     console.error('Error in biometricAuth:', error);
-    return 'Error in biometricAuth';
+    return false;
+
   }
 };
 
@@ -282,17 +294,17 @@ const authenticate = async () => {
     console.log('resultObject', resultObject);
     if (success) {
       console.log('successful biometrics provided');
-      return 'successful biometrics provided';
+      return success;
       // navigation.navigate('Home')
       // alert('Authentication successful', 'You have successfully authenticated using biometrics');
     } else {
       console.log('user cancelled biometric prompt');
-      alert('Authentication failed', 'Biometric authentication was cancelled');
+      alert(I18nManager?.isRTL?"تم إلغاء المصادقة البيومترية": 'Biometric authentication was cancelled');
       return 'user cancelled biometric prompt';
     }
   } catch (err) {
     console.log('biometrics failed', err);
-    alert('Authentication failed', 'Biometric authentication failed');
+    alert(I18nManager.isRTL?"فشل المصادقة": 'Authentication failed');
     return 'biometrics failed';
   }
 };

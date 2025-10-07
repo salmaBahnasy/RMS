@@ -10,6 +10,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 // -------------------------------------------------------------------------------------------------------
 import { icons, FONTS, COLORS, SIZES, images } from '../../constants';
 import DateTimePickerModalView from '../common/components/DateTimePickerModalView';
+import { DatePickerModal, TimePickerModal } from 'react-native-paper-dates';
+
 import MainHeader from '../common/components/MainHeader';
 import ChooseDateNum from './Component/ChooseDateNum';
 import styles from './styles';

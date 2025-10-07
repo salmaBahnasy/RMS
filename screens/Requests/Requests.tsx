@@ -1,12 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {
-  View,
-  Text,
   StyleSheet,
-  TouchableOpacity,
-  FlatList,
   I18nManager,
-  Image,
 } from 'react-native';
 import { COLORS, FONTS, icons } from '../../constants';
 import MainHeader from '../common/components/MainHeader';
@@ -40,12 +35,6 @@ const RequestsScreen: React.FC = () => {
         }}
         title={t('requests')}
       />
-      {/* <View  style = {{justifyContent: 'center', alignItems: 'center', flex: 1}}>
-        <Text style = {{fontSize: 25, fontWeight: '800', color : 'black' , paddingHorizontal: 5}}>
-           جاري  العمل علي صفحة المهمات ...
-        </Text>
-      </View> */}
-
       <ReportsViewList
         data={tasks}
       />
