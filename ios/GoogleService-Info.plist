@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>API_KEY</key>
-	<string>AIzaSyC33yjrlyOPdposA7cySL61qy84yeFWncw</string>
+	<string>AIzaSyD12kjmSgTuX9qtcvfkcrJena162Ki8MIs</string>
 	<key>GCM_SENDER_ID</key>
-	<string>224368058312</string>
+	<string>161020904031</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.aldawal.humanresourcessystem</string>
+	<string>com.aldawal.aldawallabbayt</string>
 	<key>PROJECT_ID</key>
-	<string>humanresourcessystem-da196</string>
+	<string>labbaytaldawal</string>
 	<key>STORAGE_BUCKET</key>
-	<string>humanresourcessystem-da196.appspot.com</string>
+	<string>labbaytaldawal.firebasestorage.app</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:224368058312:ios:6617bf4e9acf7685b66afd</string>
+	<string>1:161020904031:ios:612c7e38fe5ba0badb91ea</string>
 </dict>
 </plist>

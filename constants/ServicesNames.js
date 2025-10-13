@@ -72,11 +72,13 @@ const GetEquipmentDetailsByNumber = '/api/services/app/Equipment/GetEquipmentDet
 const GetMalfunctionTypes = '/api/services/app/Malfunction/GetMalfunctionType';
 const transferEquipmentList  = '/api/services/app/Equipment/GetTransferEquipmentList';
 const GetEquipmentMalfunctionGrid = '/api/services/app/Malfunction/GetEquipmentMalfunctionGridMob'
-const GetAllDriversByTeamId = '/api/services/app/Equipment/GetAllDriversByTeamId';
+const GetAllDriversByTeamId = '/api/services/app/Equipment/GetNotAssignedDriverByTeamId';
 const GetEquipmentMalfunctionDetailsById = '/api/services/app/Malfunction/GetEquipmentMalfunctionDetailsById';
 const GetEquipmentDetailsByNumberQr = '/api/services/app/Equipment/GetEquipmentDetailsByEquipmentNumber';
  const GetAllEquipment = '/api/services/app/Equipment/GetAllEquipment';
  const EquipmentTransferRequest = '/api/services/app/Equipment/EquipmentTransferRequest';
+ const GetAllEquipmentForAttendance = "/api/services/app/EquipmentAttendance/GetAllEquipmentForAttendance";
+ const GetMalfunctionworkshop = "/api/services/app/Equipment/GetWorkshopByMalfunctionTypeId";
 
 
 
@@ -150,6 +152,8 @@ export {
     GetEquipmentDetailsByNumber,
     GetAllEquipment,
     EquipmentTransferRequest,
-    GetEquipmentDetailsByNumberQr
+    GetEquipmentDetailsByNumberQr,
+    GetAllEquipmentForAttendance,
+    GetMalfunctionworkshop
 
 }

@@ -68,11 +68,7 @@ interface EquipmentItem {
     onPress: keyof RootStackParamList;
   }
 const equipmentList :EquipmentItem[] = [
-    // {
-    //     label:'equipment_search',
-    //     image: icons?.equipment_search,
-    //     onPress:'EquipmentSearch'
-    // },
+    
     {
         label:'equipment_request',
         image: icons?.equipment_request,
@@ -107,13 +103,19 @@ const equipmentList :EquipmentItem[] = [
 
 
     },
+    
+    {
+        label:'equipment_preparation',
+        image: icons?.equipment_preparation,
+        onPress:'EquipmentPreparation'
+    },
      {
         label:'diesel_consumption',
         image: icons?.diesel,
         onPress:'DieselScreen'
 
 
-    }
+    },
 ]
 
 

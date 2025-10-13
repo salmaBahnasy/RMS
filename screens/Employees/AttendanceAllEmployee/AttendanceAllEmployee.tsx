@@ -349,6 +349,8 @@ const AttendanceAllEmployee: React.FC = () => {
             </View>
           ) : searchResult?.length > 0 ? (
             // لو في نتائج بحث
+            <>
+           
             <EmployeesList
               data={searchResult}
               toggleSelectAll={toggleSelectAll}
@@ -365,6 +367,7 @@ const AttendanceAllEmployee: React.FC = () => {
               lat={lat}
               long={long}
             />
+             </>
           ) : !projectID ? (
             // بعد اللودينج الأساسي → لسه مختارش مشروع
             <EmptyView

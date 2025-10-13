@@ -69,7 +69,6 @@ const EquipmentRequest: React.FC = () => {
   // states
   // .....................................................
   const [equipmentNumber, setEquipmentNumber] = useState('');
-  const [equipment, setEquipment] = useState<Equipment | null>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
   const [type, setType] = useState('');
@@ -89,7 +88,6 @@ const EquipmentRequest: React.FC = () => {
   const [shiftLabel, setshiftLabel] = useState(t('choose'));
 
   const [siteId, setSiteId] = useState<string>('');
-  const [siteId2, setSiteId2] = useState<string>('');
 
   const [shiftId, setShiftId] = useState<any>();
 
@@ -98,8 +96,7 @@ const EquipmentRequest: React.FC = () => {
   const [feedBackImg, setFeedBackImg] = useState();
   const [fetchedEquipment, setFetchedEquipment] = useState<any>(null);
 
-  const [fetchedEquipmentQr, setFetchedEquipmentQr] = useState<any>(null);
-  const [showQrDetails, setShowQrDetails] = useState(false);
+  
   const [driverOptionModal, setDriverOptionModal] = useState(false);
   const [driversList, setDriversList] = useState<any[]>([]);
   const [driversModal, setDriversModal] = useState(false);
@@ -184,66 +181,7 @@ const EquipmentRequest: React.FC = () => {
     [],
   );
 
-  // const handleSubmit = async () => {
-  //   console.log('=== start handleSubmit ===');
-
-  //   if (!equipmentNumber || !projectID || !siteId || !shiftId) {
-  //     console.log('Missing fields =>', {
-  //       equipmentId,
-  //       projectID,
-  //       siteId,
-  //       shiftId,
-  //     });
-  //     setFeedBackTitle('يرجى اختيار كل الحقول المطلوبة');
-  //     setFeedBackImg(icons?.warning);
-  //     setFeedBackModal(true);
-  //     return;
-  //   }
-
-  //   const payload = {
-  //     equipmentId : equipmentNumber,
-  //     projectId: Number(projectID),
-  //     teamId: Number(siteId),
-  //     shiftId: Number(shiftId),
-  //     driverId: withDriver ? driverId : undefined,
-  //     isSameDriver: true,
-  //     hasDriver: withDriver,
-  //     isForEquipment: true,
-  //     createdById: 0,
-  //   };
-
-  //   console.log('Payload =>', payload);
-
-  //   setIsLoading(true);
-
-  //   try {
-  //     console.log('=== inside try before request ===');
-  //     const response = await sendEquipmentTransferRequest(payload);
-  //     console.log('=== after request ===', response);
-
-  //     const messageType = response?.result?.message?.type;
-  //     const messageContent =
-  //       response?.result?.message?.content || 'تم إرسال الطلب';
-
-  //     if (messageType === 'Error') {
-  //       setFeedBackTitle(messageContent);
-  //       setFeedBackImg(images?.fail);
-  //     } else {
-  //       setFeedBackTitle(messageContent);
-  //       setFeedBackImg(images?.success);
-  //     }
-
-  //     setFeedBackModal(true);
-  //   } catch (error) {
-  //     console.log('=== inside catch ===', error);
-  //     setFeedBackTitle('حدث خطأ أثناء الإرسال');
-  //     setFeedBackImg(icons?.warning);
-  //     setFeedBackModal(true);
-  //   } finally {
-  //     console.log('=== finally ===');
-  //     setIsLoading(false);
-  //   }
-  // };
+ 
   const handleSubmit = () => {
     if (!equipmentNumber || !projectID || !siteId || !shiftId) {
       setFeedBackTitle(t('field_required'));
@@ -255,17 +193,7 @@ const EquipmentRequest: React.FC = () => {
     // 👇 نفتح المودال بتاع اختيار السواق
     setDriverOptionModal(true);
   };
-  // const fetchDriversByTeam = async (teamId: number) => {
-  //   try {
-  //     const res = await getAllDriversByTeamId(teamId);
-  //     if (res.success) {
-  //       setDriversList(res.result?.returnData || []);
-  //       setDriversModal(true);
-  //     }
-  //   } catch (err) {
-  //     console.error('Error fetching drivers:', err);
-  //   }
-  // };
+ 
   const fetchDriversByTeam = async (teamId: number) => {
     try {
       const res = await getAllDriversByTeamId(teamId);

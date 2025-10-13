@@ -16,7 +16,7 @@ type Employee = {
 };
 
 type AttendanceCounts = {
-  attended: number;
+  attended: number ;
   absence: number;
   absentWithPermission: number;
   noStatus: number;
@@ -24,8 +24,8 @@ type AttendanceCounts = {
 
 type ShortReportProps = {
   data: Employee[];
-  searchResult: (filtered: Employee[]) => void;
-  setemployStatues: React.Dispatch<React.SetStateAction<string>>; // أضف هذا السطر
+  searchResult?: (filtered: Employee[]) => void;
+  setemployStatues?: React.Dispatch<React.SetStateAction<string>>; // أضف هذا السطر
 
 };
 
@@ -57,7 +57,7 @@ const ShortReport = ({ data, searchResult }: ShortReportProps) => {
       });
 
       setFilteredEmployees(filteredList);
-      searchResult(filteredList);
+      searchResult?.(filteredList);
     }
   }, [searchTerm, data]);
 
@@ -130,7 +130,7 @@ const ShortReport = ({ data, searchResult }: ShortReportProps) => {
         leftIconAction={() => { }}
         rightIconAction={() => {
           setSearchTerm("");
-          searchResult([]);
+          searchResult?.([]);
         }}
         rightIcon={icons.clear}
         value={searchTerm}
