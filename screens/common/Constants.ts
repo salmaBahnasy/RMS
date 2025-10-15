@@ -60,6 +60,13 @@ const employeesList: EmployeeItem[] =  [
 
 
     },
+    {
+        label:'vacationRequest',
+        image: icons?.vacc,
+        onPress:"VacationApprovalRequest"
+
+
+    },
    
 ]
 interface EquipmentItem {

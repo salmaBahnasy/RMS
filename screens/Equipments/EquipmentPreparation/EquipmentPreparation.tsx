@@ -28,7 +28,10 @@ import {
   getAllProjects,
   getAllSite,
 } from '../../Employees/AttendanceAllEmployee/services/Services';
-import {getAllEquipmentForAttendance, startEquipmentAttendance} from './services/services';
+import {
+  getAllEquipmentForAttendance,
+  startEquipmentAttendance,
+} from './services/services';
 import EquipmentList from './EquipmentList';
 import EmployeesList from '../../Employees/AttendanceAllEmployee/components/EmployeesList';
 import ShortReport from '../../Employees/AttendanceAllEmployee/components/ShortReport';
@@ -36,21 +39,13 @@ import ShortReportEquipment from './components/ShortReportEquipment';
 
 //Define types based on the API response
 type Equipment = {
-  // id: number;
-  // number: number;
-  // name: string;
-  // brand: string;
-  // attendanceStatusId: number | null;
-  // dateOnly: string;
-  // status: number | null;
-  // // يمكن إضافة equipmentId إذا كان مطلوبًا
-  // equipmentId?: string;
-  // equipmentName?: string;
-  // equipmentNameEn?: string;
-  equipmentId: string;
-  equipmentName: string;
-  equipmentNameEn: string;
+  id: number;
+  name: string;
+  number: number;
+  brand?: string;
+  dateOnly?: string;
   status?: number | null;
+  attendanceStatusId?: number | null;
   image?: string;
 };
 
@@ -84,7 +79,7 @@ const EquipmentPreparation: React.FC = () => {
   const [feedBackModal, setFeedBackModal] = useState<boolean>(false);
   const [feedBackTitle, setFeedBackTitle] = useState<string | undefined>();
   const [feedBackImg, setFeedBackImg] = useState<any>();
-  const [selectedEquipments, setSelectedEquipments] = useState<string[]>([]); // تغيير إلى number[] لأن id من نوع number
+  const [selectedEquipments, setSelectedEquipments] = useState<number[]>([]); // تغيير إلى number[] لأن id من نوع number
   const [selectAll, setSelectAll] = useState<boolean>(false);
   const [searchResult, setSearchResult] = useState<Equipment[]>([]);
   const [loader, setLoader] = useState<boolean>(true);
@@ -136,87 +131,90 @@ const EquipmentPreparation: React.FC = () => {
     });
   };
 
-  const getEquipmentList = async () => {
-    if (!projectID || !siteId) return;
+ const getEquipmentList = async (projId?: string, siteIdParam?: string) => {
+  const project = projId || projectID;
+  const site = siteIdParam || siteId;
+  if (!project || !site) return;
 
-    try {
-      setEquipmentLoading(true);
-      const equipmentData = await getAllEquipmentForAttendance(
-        projectID,
-        siteId,
-      );
-      console.log('equipmentData', equipmentData);
+  try {
+    setEquipmentLoading(true);
+    const equipmentData = await getAllEquipmentForAttendance(project, site);
 
-      if (equipmentData.result?.message?.type === 'Success') {
-        console.log(
-          'equipmentData.result?.message?.type',
-          equipmentData.result?.message?.type,
-        );
-        const equipmentRecords =
-          equipmentData.result?.returnData?.records || [];
-        setEquipmentList(equipmentRecords);
-      } else {
-        console.log('equipmentData.type', equipmentData.type);
-
-        setEquipmentList([]);
-        setFeedBackModal(true);
-        setFeedBackTitle(t('failedToLoadEquipment'));
-        setFeedBackImg(images.fail);
-      }
-    } catch (error) {
-      console.error('Error fetching equipment:', error);
-      setEquipmentList([]);
-    } finally {
-      setEquipmentLoading(false);
-    }
-  };
-
-  const recordEquipmentPrep = async (preparationStatus: string) => {
-    if (selectedEquipments?.length > 0) {
-      const postData = await startEquipmentAttendance( 1,[407] );
-
-      if (postData?.result?.message?.type === 'Success') {
-        setSearchResult([]);
-        setFeedBackModal(true);
-        setFeedBackTitle(postData.result.message.content || t('successfully'));
-        setFeedBackImg(images.success);
-        getEquipmentList(); // إعادة تحميل البيانات
-        setSelectedEquipments([]);
-        setSelectAll(false);
-      } else {
-        setFeedBackModal(true);
-        setFeedBackTitle(postData?.result?.message?.content || t('failed'));
-        setFeedBackImg(images.fail);
-      }
+    if (equipmentData.result?.message?.type === 'Success') {
+      const equipmentRecords = equipmentData.result?.returnData?.records || [];
+      setEquipmentList(equipmentRecords);
     } else {
+      setEquipmentList([]);
       setFeedBackModal(true);
-      setFeedBackTitle(t('pleaseSelectEquipment'));
+      setFeedBackTitle(t('failedToLoadEquipment'));
       setFeedBackImg(images.fail);
     }
-  };
+  } catch (error) {
+    console.error('Error fetching equipment:', error);
+    setEquipmentList([]);
+  } finally {
+    setEquipmentLoading(false);
+  }
+};
+
+
+  const recordEquipmentPrep = async (statusId: number) => {
+  if (selectedEquipments?.length > 0) {
+    const ids = selectedEquipments
+      .map(id => Number(id))
+      .filter(id => !isNaN(id));
+
+    const postData = await startEquipmentAttendance(statusId, ids);
+
+    if (postData?.result?.message?.type === 'Success') {
+      setSearchResult([]);
+      setFeedBackModal(true);
+      setFeedBackTitle(postData.result.message.content || t('successfully'));
+      setFeedBackImg(images.success);
+
+      // ✅ هنا الإضافة المهمة
+     await getEquipmentList(projectID, siteId);
+
+      setSelectedEquipments([]);
+      setSelectAll(false);
+    } else {
+      setFeedBackModal(true);
+      setFeedBackTitle(postData?.result?.message?.content || t('failed'));
+      setFeedBackImg(images.fail);
+    }
+  } else {
+    setFeedBackModal(true);
+    setFeedBackTitle(t('pleaseSelectEquipment'));
+    setFeedBackImg(images.fail);
+  }
+};
+
 
   const toggleSelectAll = () => {
-    setSelectAll(!selectAll);
+    const newSelectAll = !selectAll;
+    setSelectAll(newSelectAll);
     setSelectedEquipments(
-      selectAll ? [] : equipmentList.map(equip => equip.equipmentId), // استخدام id بدلاً من equipmentId
+      newSelectAll ? equipmentList.map(equip => Number(equip.id)) : [],
     );
   };
 
-  const toggleSelection = (id: string) => {
-    // تغيير إلى number
-    setSelectedEquipments(prev =>
-      prev.includes(id)
-        ? prev.filter(equipId => equipId !== id)
-        : [...prev, id],
-    );
+  const toggleSelection = (id: number) => {
+    setSelectedEquipments(prev => {
+      if (prev.includes(id)) {
+        return prev.filter(equipId => equipId !== id);
+      } else {
+        const updated = [...prev, id];
+        setSelectAll(updated.length === equipmentList.length);
+        return updated;
+      }
+    });
   };
-
   return (
     <SafeAreaView style={{flex: 1}}>
       <SubHeader
-        leftIconAction={() => navigation.navigate('Home')}
+        leftIconAction={() => navigation.pop()}
         leftIcon={I18nManager.isRTL ? icons.rightBack : icons.leftBack}
-        title={t('equipmentPreparation')}
+        title={t('equipment_preparation')}
       />
 
       <FeedBackModal
@@ -250,9 +248,8 @@ const EquipmentPreparation: React.FC = () => {
             setEquipmentList([]);
             setSelectedEquipments([]);
 
-            // استدعاء API المعدات مباشرة بعد اختيار الفرقة
             setEquipmentLoading(true);
-            await getEquipmentList();
+            await getEquipmentList(projectID, item?.id); // ✅ مرر الـ id مباشرة
             setEquipmentLoading(false);
           }
         }}
@@ -318,61 +315,39 @@ const EquipmentPreparation: React.FC = () => {
             </View>
 
             {/* التحكم في عرض البيانات */}
-            {equipmentLoading ? (
-              <View style={{marginTop: 30, alignItems: 'center'}}>
-                <ActivityIndicator size="large" color="blue" />
-              </View>
-            ) : searchResult?.length > 0 ? (
-              <EquipmentList
-                data={equipmentList}
-                toggleSelectAll={toggleSelectAll}
-                selectAll={selectAll}
-                selectedEquipments={selectedEquipments}
-                toggleSelection={toggleSelection}
-                 recordAttendance={recordEquipmentPrep}
-                selectedOneEquipment={(employeeID: string) =>
-                  setSelectedEquipments([])
-                }
-                lat={lat}
-                long={long}
-              />
-            ) : !projectID ? (
-              <EmptyView
-                label={t('pleaseSelectProjectFirst')}
-                ImgStyle={{width: 100, height: 100}}
-              />
-            ) : !siteId ? (
-              <EmptyView
-                label={t('pleaseSelectSiteFirst')}
-                ImgStyle={{width: 100, height: 100}}
-              />
-            ) : equipmentList?.length === 0 ? (
-              <EmptyView
-                //  image={images?.equipment}
-                label={t('noEquipmentFound')}
-                ImgStyle={{width: 100, height: 100}}
-              />
-            ) : (
-              <>
-                <ShortReportEquipment
-                  searchResult={(val: Equipment[]) => setSearchResult(val)}
-                  data={equipmentList}
-                />
-                <EquipmentList
-                  data={equipmentList}
-                  toggleSelectAll={toggleSelectAll}
-                  selectAll={selectAll}
-                  selectedEquipments={selectedEquipments}
-                  toggleSelection={toggleSelection}
-                  recordAttendance={recordEquipmentPrep}
-                  selectedOneEquipment={(employeeID: string) =>
-                    setSelectedEquipments([])
-                  }
-                  lat={lat}
-                  long={long}
-                />
-              </>
-            )}
+           {equipmentLoading ? (
+  <View style={{marginTop: 30, alignItems: 'center'}}>
+    <ActivityIndicator size="large" color="blue" />
+  </View>
+) : !projectID ? (
+  <EmptyView label={t('pleaseSelectProjectFirst')} ImgStyle={{width: 100, height: 100}} />
+) : !siteId ? (
+  <EmptyView label={t('pleaseSelectSiteFirst')} ImgStyle={{width: 100, height: 100}} />
+) : equipmentList?.length === 0 ? (
+  <EmptyView label={t('noEquipmentFound')} ImgStyle={{width: 100, height: 100}} />
+) : (
+  <>
+    {/* ✅ التقرير دايمًا فوق */}
+    <ShortReportEquipment
+      searchResult={(val: Equipment[]) => setSearchResult(val)}
+      data={equipmentList}
+    />
+
+    {/* ✅ القائمة */}
+    <EquipmentList
+      data={searchResult.length > 0 ? searchResult : equipmentList}
+      toggleSelectAll={toggleSelectAll}
+      selectAll={selectAll}
+      selectedEquipments={selectedEquipments}
+      toggleSelection={toggleSelection}
+      recordAttendance={recordEquipmentPrep}
+      selectedOneEquipment={() => setSelectedEquipments([])}
+      lat={lat}
+      long={long}
+    />
+  </>
+)}
+
           </>
         )}
       </ScrollView>

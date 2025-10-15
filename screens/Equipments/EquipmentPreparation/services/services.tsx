@@ -65,6 +65,7 @@ export const startEquipmentAttendance  = async (
     });
 
     console.log('response...', response);
+    console.log('payload...', payload);
 
     if (response.ok) {
       const data = await response.json();
@@ -73,7 +74,7 @@ export const startEquipmentAttendance  = async (
     } else {
       const errorData = await response.json();
       console.error(
-        'Error submitting malfunction:',
+        'Error  :',
         response.status,
         errorData,
       );

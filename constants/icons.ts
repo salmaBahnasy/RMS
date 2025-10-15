@@ -69,7 +69,9 @@ export const arrowDetails1 = require("../assets/icons/arrowDetails1.png");
 export const justifications = require("../assets/icons/contact-form.png");
 export const clear = require("../assets/icons/Close.png");
 export const filter = require("../assets/icons/filter.png");
-export const maintain = require('../assets/icons/research-analysis.png')
+export const maintain = require('../assets/icons/research-analysis.png');
+export const equipment = require('../assets/icons/equipment.png')
+
 
 
 // ............................................................
@@ -138,5 +140,6 @@ export default {
     chatSelect,
     diesel,
     malfunctionRequests,
-    camera
+    camera,
+    equipment
 }

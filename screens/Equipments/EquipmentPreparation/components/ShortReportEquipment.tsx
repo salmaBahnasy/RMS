@@ -6,10 +6,13 @@ import styles from "../styles";
 import MainTextInput from "../../../common/components/MainTextInput";
 
 type Equipment = {
-  equipmentId: string;
-  equipmentName: string;
-  equipmentNameEn: string;
-  status?: number | null; // الحالات: 1 نشط، 2 معطل، 3 بإذن، null لم تُسجل بعد
+  id: number;
+  name: string;
+  number: number;
+  brand?: string;
+  dateOnly?: string;
+  status?: number | null;
+  attendanceStatusId?: number | null;
   image?: string;
 };
 
@@ -41,15 +44,16 @@ const ShortReportEquipment = ({ data, searchResult }: ShortReportEquipmentProps)
   useEffect(() => {
     if (searchTerm === "") {
       setFilteredEquipments(data);
+      searchResult?.(data);
     } else {
+      const normalizedSearchTerm = searchTerm.toLowerCase();
+
       const filteredList = data.filter((equip) => {
         const isNumericSearch = !isNaN(Number(searchTerm));
-        const EquipName = I18nManager?.isRTL ? equip.equipmentName : equip.equipmentNameEn;
-        const normalizedSearchTerm = searchTerm.toLowerCase();
 
         return isNumericSearch
-          ? String(equip.equipmentId) === searchTerm
-          : EquipName?.toLowerCase().includes(normalizedSearchTerm);
+          ? String(equip.id) === searchTerm
+          : equip.name?.toLowerCase().includes(normalizedSearchTerm);
       });
 
       setFilteredEquipments(filteredList);
@@ -98,7 +102,7 @@ const ShortReportEquipment = ({ data, searchResult }: ShortReportEquipmentProps)
 
   const ReportRow = ({ label, data }: { label: string; data: number }) => {
     return (
-      <Text style={{ ...styles.labeltxt }}>
+      <Text style={styles.labeltxt}>
         {label}: <Text style={styles.numtxt}>{data}</Text>
       </Text>
     );
@@ -113,16 +117,15 @@ const ShortReportEquipment = ({ data, searchResult }: ShortReportEquipmentProps)
         <ReportRow label={t("with_permission")} data={equipmentCounts.withPermission} />
         <ReportRow label={t("pending")} data={equipmentCounts.pending} />
       </View>
+
       <MainTextInput
-        onChangeText={(val: string) => {
-          setSearchTerm(val);
-        }}
+        onChangeText={(val: string) => setSearchTerm(val)}
         placeholder={t("equipmentSearch")}
         leftIcon={icons.search}
         leftIconAction={() => {}}
         rightIconAction={() => {
           setSearchTerm("");
-          searchResult?.([]);
+          searchResult?.(data);
         }}
         rightIcon={icons.clear}
         value={searchTerm}

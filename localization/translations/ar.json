@@ -436,7 +436,16 @@
   "not_specified": "لايوجد ",
   "noProjectsFound": "لا توجد مشاريع متاحة",
   "no_drivers": "لا يوجد سائقين",
-  "ok":"حسنا"
+  "ok":"حسنا",
+  "workshop":"ورشة التصليح",
+  "number_of_equipments": "عدد المعدّات",
+  "active": "نشط",
+  "inactive": "غير نشط",
+  "with_permission": "بإذن",
+  "pending": "قيد الانتظار",
+    "equipmentSearch": "بحث عن المعدّات",
+    "noEquipmentFound":"لا يوجد معدات",
+    "vacationRequest":"طلب اجازة"
 }
 
 

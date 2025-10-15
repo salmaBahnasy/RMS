@@ -37,6 +37,7 @@ import OrderDetails from '../screens/Employees/OrderDetails/OrderDetails';
 import DieselScreen from '../screens/Equipments/EquipmentDiesel/DieselScrren';
 import MalfunctionRequests from '../screens/Equipments/MalfunctionRequests/MalfunctionRequests';
 import MalfunctionDetails from '../screens/Equipments/MalfunctionRequests/MalfunctionDetails ';
+import VacationApprovalRequest from '../screens/Employees/VacationApprovalRequest/VacationApprovalRequest';
 
 const Stack = createNativeStackNavigator();
 
@@ -100,6 +101,8 @@ function Navigation() {
         <Stack.Screen name="EmployeeDetails" component={EmployeeDetails} />
         <Stack.Screen name="OrderApproval" component={OrderApproval} />
         <Stack.Screen name="OrderDetails" component={OrderDetails} />
+        <Stack.Screen name="VacationApprovalRequest" component={VacationApprovalRequest} />
+
 
         {/* .............................end employee.............................. */}
         <Stack.Screen name="Profile" component={Profile} />

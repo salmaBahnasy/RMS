@@ -34,7 +34,7 @@ const BottomDropdownModal: React.FC<BottomDropdownModalProps> = (props:any) => {
       </Text>
     );
   };
-
+console.log("modal props",props)
   const ListHeader = () => {
     return (
       <View style={{ ...styles.row, justifyContent: 'space-between', marginBottom: 8 }}>
@@ -46,20 +46,22 @@ const BottomDropdownModal: React.FC<BottomDropdownModalProps> = (props:any) => {
     );
   };
 
+  if (!props.isVisible) return null;
+
   return (
     <Modal
-      isVisible={props.isVisible}
+      isVisible={true}
+      onBackdropPress={() => props.onDismiss(false)}
       style={{
-        width:"100%",
-        alignSelf: 'center',
-        position: 'absolute',
-        bottom: 0,
+        margin: 0,
+        justifyContent: 'flex-end',
       }}
       coverScreen={true}
+      useNativeDriver={true}
+      backdropTransitionOutTiming={0}
     >
       <View
         style={{
-          flex: 1,
           backgroundColor: COLORS.white,
           height: 312,
           borderTopRightRadius: 20,
@@ -69,16 +71,15 @@ const BottomDropdownModal: React.FC<BottomDropdownModalProps> = (props:any) => {
       >
         <TouchableOpacity onPress={() => props.onDismiss(false)} style={styles.drag} />
         <FlatList
-          data={props.data} // Use `props.data` if provided, otherwise fallback to default data
+          data={Array.isArray(props.data) ? props.data : []}
           renderItem={renderItem}
+          keyExtractor={(item: any, index: number) => String(item?.id ?? index)}
           ListHeaderComponent={<ListHeader />}
-          ListEmptyComponent={() => {
-            return <View style={{ width: 'auto', height: 'auto' }}>
-              <Text style={{
-                ...styles?.emptytxt
-              } as TextStyle}>{t('nodataavailablenow')}</Text>
+          ListEmptyComponent={() => (
+            <View style={{ width: 'auto', height: 'auto' }}>
+              <Text style={styles?.emptytxt as TextStyle}>{t('nodataavailablenow')}</Text>
             </View>
-          }}
+          )}
         />
       </View>
     </Modal>

@@ -134,7 +134,7 @@ const VacationHistory: React.FC<VacationHistoryProps> = () => {
   }
   const VacationGridView = (data: any) => {
     const renderItem = ({ item, index }: { item: VacationItem, index: number }) => {
-      return (<View style={{ backgroundColor: COLORS?.white, borderRadius: 10, padding: 8, flex: 1, marginHorizontal: 8, marginVertical: 4 }}>
+      return (<View style={{ backgroundColor: COLORS?.white, borderRadius: 10, padding: 8, flex: 1, marginHorizontal: 8, marginVertical: 4,height:SIZES?.height/3-60 }}>
         <Text style={{
           ...FONTS?.body4, textTransform: 'capitalize', marginVertical: 2,
           backgroundColor: COLORS?.Warningbg, color: COLORS?.Warningtxt, alignSelf: 'flex-end'
@@ -144,8 +144,8 @@ const VacationHistory: React.FC<VacationHistoryProps> = () => {
         <Text style={{ ...FONTS?.h4, textTransform: 'capitalize', marginVertical: 2, } as TextStyle}>{t('startDate')} : {moment(item.startDate).format(dateNumber)}</Text>
         <Text style={{ ...FONTS?.h4, textTransform: 'capitalize', marginVertical: 2, } as TextStyle}>{t('endDate')} : {moment(item.endDate).format(dateNumber)}</Text>
         <Text style={{ ...FONTS?.h4, textTransform: 'capitalize', marginVertical: 2, } as TextStyle}>{t('vduration')} : {item?.vacationDuration}</Text>
-        {item?.notes ? <Text style={{ ...FONTS?.h4 } as TextStyle}>{item?.notes}</Text> : null}
-        <MainButton
+        <Text style={{ ...FONTS?.h4 } as TextStyle}>{item?.notes}</Text> 
+        {/* <MainButton
           onPress={async () => {
             const userData = await AsyncStorage.getItem('userId');
             const userId: number = JSON.parse(userData || '0');
@@ -169,7 +169,8 @@ const VacationHistory: React.FC<VacationHistoryProps> = () => {
               setFeedBackTitle(sendToApproval?.error?.message || t('somethingerror'))
             }
           }}
-          containerStyle={{ paddingVertical: 2, height: 30, marginTop: 20 }} label={t('sendforapprove')} />
+          containerStyle={{ paddingVertical: 2, height: 30, marginTop: 20,position:'absolute',bottom:16,width:"90%",alignSelf:'center' }} label={t('sendforapprove')} />
+       */}
       </View>)
     }
     return <FlatList

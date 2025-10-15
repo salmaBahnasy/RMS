@@ -155,10 +155,10 @@ const getAllMalfunctionTypes = async () => {
     return error?.message || 'Network error';
   }
 };
-const getAllworkshop = async () => {
+const getAllworkshop = async (malfunctionTypeId:any) => {
   const userToken = await AsyncStorage.getItem('userToken');
   console.log('userToken', userToken);
-  const url = BaseURL + GetMalfunctionworkshop;
+  const url = BaseURL + GetMalfunctionworkshop+"?"+malfunctionTypeId;
   console.log('url', url);
 
   try {

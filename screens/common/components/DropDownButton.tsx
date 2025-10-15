@@ -36,7 +36,7 @@ const DropDownButton: React.FC<DropDownButtonProps> = props => {
           </Text>
         ) : (
           <Text
-            style={{...FONTS?.body5, color: COLORS?.lightGray2} as TextStyle}>
+            style={{...FONTS?.body5, color: COLORS?.lightGray2,alignSelf: 'center'} as TextStyle}>
             {props?.label}
           </Text>
         )}

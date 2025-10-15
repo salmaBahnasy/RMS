@@ -58,7 +58,7 @@ const MainTextInput: React.FC<MainTextInputProps> = (props) => {
           keyboardType={props.keyboardType}
           secureTextEntry={props.secureTextEntry}
           onChangeText={props.onChangeText}
-          style={[styles.input, props.inputStyle]}
+          style={[styles.input, props.inputStyle,props.multiline &&{ textAlignVertical: 'top'}]}
           placeholder={props.placeholder}
           placeholderTextColor={COLORS.gray}
           editable={props.editable !== undefined ? props.editable : true}
@@ -108,9 +108,9 @@ const styles = StyleSheet.create({
     ...FONTS.body3,
     flex: 1,
     width: '100%',
-   // alignSelf: 'center',
+   alignSelf: 'center',
     textAlign: I18nManager.isRTL ? "right" : "left",
-    textAlignVertical: 'top',
+
     // height:50
   },
   icon: {

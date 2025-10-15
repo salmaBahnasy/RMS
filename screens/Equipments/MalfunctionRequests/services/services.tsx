@@ -1,6 +1,6 @@
 import { I18nManager } from "react-native";
 import { BaseURL } from "../../../../constants/BaseUrl";
-import { GetEquipmentMalfunctionDetailsById, GetEquipmentMalfunctionGrid } from "../../../../constants/ServicesNames";
+import { EquipmentFixedRequest, GetEquipmentMalfunctionDetailsById, GetEquipmentMalfunctionGrid } from "../../../../constants/ServicesNames";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export const getEquipmentMalfunctionGrid = async (equipmentNumber: string | number) => {
@@ -101,4 +101,35 @@ export const createEquipmentFixedRequest = async (data: { id: number; note: stri
     return error?.message || "Network error";
   }
 };
+export const EquipmentFixedRequestFunction = async (data:any) => {
+  const userToken = await AsyncStorage.getItem('userToken');
+    console.log('userToken', userToken)
+ const url = `${BaseURL}${EquipmentFixedRequest}`;
+ console.log("Request URL:", url);
+ console.log("Request Body:", data);
 
+ try {
+   const response = await fetch(url, {
+     method: "POST",
+     headers: {
+       "Content-Type": "application/json; charset=utf-8",
+       "Accept-Language": I18nManager.isRTL ? "ar" : "en",
+       'Authorization': `Bearer ${userToken}`,
+     },
+     body: JSON.stringify(data),
+   });
+
+   if (response.ok) {
+     const result = await response.json();
+     console.log("✅ Fixed Request Success:", result);
+     return result;
+   } else {
+     const errorData = await response.json();
+     console.error("❌ Fixed Request Error:", errorData);
+     return errorData;
+   }
+ } catch (error: any) {
+   console.error("❌ Network error:", error);
+   return error?.message || "Network error";
+ }
+};

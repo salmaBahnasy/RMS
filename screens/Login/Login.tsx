@@ -146,9 +146,7 @@ const Login: React.FC = () => {
           loginResponse.result.accessToken,
         );
         console.log('loginResponse.result.userId', loginResponse.result.userId);
-
         console.log('loginResponse.result.empId', loginResponse.result.empId);
-
         await saveFingerPrintApi(loginResponse.result.empId);
           console.log('loginResponse.result.empId',loginResponse.result.empId)
         setEmail('');

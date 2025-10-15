@@ -429,7 +429,17 @@
   "not_specified": "Not Found",
   "noProjectsFound": "No projects found",
   "no_drivers": "No drivers available",
-  "ok":"Ok"
+  "ok":"Ok",
+  "workshop":"workshop",
+  "number_of_equipments": "Number of Equipments",
+  "active": "Active",
+  "inactive": "Inactive",
+  "with_permission": "With Permission",
+  "pending": "Pending",
+   "equipmentSearch": "Equipment Search",
+   "noEquipmentFound":"no Equipment Found",
+   "vacationRequest":"Vacation Request"
+
 
 
 }

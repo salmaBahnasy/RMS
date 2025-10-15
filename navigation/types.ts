@@ -64,7 +64,7 @@ export type RootStackParamList = {
     description: string;
 
   };
-
+  VacationApprovalRequest:undefined,
   More: undefined;
   VacationRequest: undefined;
   Profile: undefined; // Define the 'Profile' route with no parameters

@@ -49,8 +49,6 @@ const ReportMalfunction: React.FC = () => {
 
   const [showDetails, setShowDetails] = useState(false);
   const [faultLabel, setFaultLabel] = useState<string>('اختر نوع العطل');
-    const [workshopLabel, setworkshopLabel] = useState<string>('اختر ورشة التصليح ');
-
   const [faultId, setFaultId] = useState<string | undefined>();
   const [isVisible, setIsVisible] = useState(false);
   const [type, setType] = useState('');
@@ -393,25 +391,10 @@ const ReportMalfunction: React.FC = () => {
           dropdownContainer={{paddingTop: 12}}
         />
 
-        {
-           <DropDownButton
-          label={t('workshop')}
-          selectedItem={workshopLabel}
-          onIsVisible={() => {
-            getAllworkshop(faultId).then(data => {
-              setDropDownData(data?.result?.returnData || []);
-              setType('workshop');
-              setIsVisible(true);
-            });
-          }}
-          dropdownView={{backgroundColor: COLORS?.white}}
-          dropdownContainer={{paddingTop: 12}}
-        />
-        }
 
         <MainTextInput
           value={faultDetails}
-          multiline
+          multiline={true}
           numberOfLines={5}
           label={t('malfunctionDetails')}
           placeholder={t('enterDetails')}
