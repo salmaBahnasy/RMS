@@ -39,7 +39,8 @@ const getAllVacationRequests = async (pageNumber:number): Promise<ApprovalReques
       const data = await response.json();
       console.log('data:', data);
 
-      return data?.result?.returnData?.requests || [];
+      return data?.result?.returnData?.vacations
+       || [];
     } else {
       const errorData = await response.json();
       console.error('Error:', errorData);

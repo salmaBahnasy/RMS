@@ -131,7 +131,7 @@
   "working_hours": "اوقات الدوام",
   "employee_transfer_requests": "طلبات نقل الموظف",
   "Recordattendance": "تسجيل الحضور",
-  "distance_to_fingerprint_point": "المسافة بينك والان وبين النقطة المعتمدة للبصمة هي  ",
+  "distance_to_fingerprint_point": "المسافة بينك الان وبين النقطة المعتمدة للبصمة هي  ",
   "welcome_message": "مرحبًا بعودتك!",
   "login_prompt": "يرجى تسجيل الدخول باستخدام البريد الإلكتروني وكلمة المرور الخاصة بك",
   "update_required": "مطلوب تحديث التطبيق للمتابعة!",
@@ -445,7 +445,12 @@
   "pending": "قيد الانتظار",
     "equipmentSearch": "بحث عن المعدّات",
     "noEquipmentFound":"لا يوجد معدات",
-    "vacationRequest":"طلب اجازة"
+    "vacationRequest":"طلب اجازة",
+    "noAttachment":"لايوجد مرفق"
+  ,"identity":"الهوية"
+  ,"nationalId":"رقم الهوية"
+  ,"nationalAddress":"العنوان الوطني"
+  ,"expiryDate":"تاريخ الانتهاء"
 }
 
 

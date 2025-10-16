@@ -12,13 +12,18 @@ interface LanguageModalProps {
 
 const LanguageModal: React.FC<LanguageModalProps> = ({ isVisible, onDismiss, changeLanguage }) => {
   const { t } = useTranslation();
-
+console.log("isVisible",isVisible)
   return (
     <Modal
       isVisible={isVisible}
       onDismiss={() => onDismiss(false)}
       onBackdropPress={() => onDismiss(false)}
-      style={styles.modal}
+      coverScreen
+      statusBarTranslucent
+      useNativeDriver
+      backdropOpacity={0.5}
+      animationIn="fadeIn"
+      animationOut="fadeOut"
     >
       <View style={styles.view}>
         <Text style={styles.header}>{t('changelanguage')}</Text>
@@ -40,20 +45,10 @@ const LanguageModal: React.FC<LanguageModalProps> = ({ isVisible, onDismiss, cha
 };
 
 const styles = StyleSheet.create({
-  modal: {
-    backgroundColor: COLORS.white,
-    position: 'absolute',
-    bottom: 0,
-    width: '100%',
-    alignSelf: 'center',
-    borderTopRightRadius: 32,
-    borderTopLeftRadius: 32,
-  },
   view: {
     backgroundColor: COLORS.white,
     padding: 24,
-    borderTopRightRadius: 32,
-    borderTopLeftRadius: 32,
+    borderRadius: 24,
   },
   header: {
     ...FONTS.h2,

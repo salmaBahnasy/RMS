@@ -82,15 +82,15 @@ const AttendanceAllEmployee: React.FC = () => {
   const [dropDownData, setDropDownData] = useState<any[]>([]);
   const [type, setType] = useState<string>('project');
   const [allProjects, setAllProjects] = useState<Project[]>([]);
-  const [projectLabel, setProjectLabel] = useState<string>(t('choose'));
-  const [projectID, setProjectID] = useState<string | undefined>();
+  const [projectLabel, setProjectLabel] = useState<string>(route.params?.projectLabel ?? t('choose'));
+  const [projectID, setProjectID] = useState<string | undefined>(route.params?.projectID);
   const [allSites, setAllSites] = useState<Site[]>([]);
-  const [siteLabel, setSiteLabel] = useState<string>(t('choose'));
+  const [siteLabel, setSiteLabel] = useState<string>(route.params?.siteLabel ?? t('choose'));
   const [allShift, setAllShift] = useState<Shift[]>([]);
-  const [shiftLabel, setShiftLabel] = useState<string>(t('choose'));
-  const [siteId, setSiteId] = useState<string | undefined>();
+  const [shiftLabel, setShiftLabel] = useState<string>(route.params?.shiftLabel ?? t('choose'));
+  const [siteId, setSiteId] = useState<string | undefined>(route.params?.siteId);
   const [shiftId, setShiftId] = useState<string | number>(
-    route.params?.data?.shiftId ? route.params?.data?.shiftId : '',
+    route.params?.data?.shiftId ? route.params?.data?.shiftId : route.params?.shiftId ?? '',
   );
   const [employList, setEmployList] = useState<Employee[]>([]);
   const [feedBackModal, setFeedBackModal] = useState<boolean>(false);
@@ -133,9 +133,17 @@ const AttendanceAllEmployee: React.FC = () => {
 }, []);
 
   useEffect(() => {
-    if (route.params?.data?.shiftId) {
-      console.log('route.params.data.shiftId', route.params.data.shiftId);
-      getAttendance(route.params.data.shiftId ?? shiftId);
+    const idToLoad = route.params?.data?.shiftId ?? shiftId;
+    if (idToLoad) {
+      getAttendance(idToLoad);
+    }
+    // If returning with an updated employee, merge status into list
+    if (route.params?.updatedEmployee?.employeeId) {
+      setEmployList(prev => prev.map(emp => (
+        emp.employeeId === route.params.updatedEmployee.employeeId
+          ? { ...emp, status: route.params.updatedEmployee.status }
+          : emp
+      )));
     }
   }, [isFocused]);
 
@@ -415,6 +423,11 @@ const AttendanceAllEmployee: React.FC = () => {
                 shiftId={shiftId}
                 lat={lat}
                 long={long}
+                projectID={projectID}
+                siteId={siteId}
+                projectLabel={projectLabel}
+                siteLabel={siteLabel}
+                shiftLabel={shiftLabel}
               />
             </>
           )}

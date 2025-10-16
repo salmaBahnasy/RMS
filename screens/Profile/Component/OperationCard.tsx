@@ -58,8 +58,8 @@ const OperationCard: React.FC<OperationCardProps> = ({ operationCardExpiry, oper
   fstValue={() => (
     <TouchableOpacity
       onPress={() => {
-        if (!operationCardAttachment || operationCardAttachment === 'لايوجد مرفق') {
-          Alert.alert('لا يوجد مرفق'); // أو أي رسالة منطقية للمستخدم
+        if (!operationCardAttachment || operationCardAttachment === t('noAttachment')) {
+          Alert.alert(t('noAttachment'));
           return;
         }
         const link = BaseURL + operationCardAttachment;
@@ -69,7 +69,7 @@ const OperationCard: React.FC<OperationCardProps> = ({ operationCardExpiry, oper
     >
       <Image source={icons?.clould} style={{ width: 20, height: 20, marginHorizontal:5 }} />
       <Text style={styles.val as StyleProp<TextStyle>}>
-        {operationCardAttachment || 'لايوجد مرفق'}
+        {operationCardAttachment || t('noAttachment')}
       </Text>
     </TouchableOpacity>
   )}

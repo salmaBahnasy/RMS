@@ -2,17 +2,18 @@ import React, { useState } from 'react';
 import {
     Text, View,
     StyleSheet,
-    SafeAreaView,
     TextStyle,
     Platform,
     I18nManager,
     ScrollView,
     Image
 } from "react-native"
+import { SafeAreaView } from 'react-native-safe-area-context';
+
 import { useTranslation } from 'react-i18next';
 import CheckBox from '@react-native-community/checkbox';
 import MainHeader from '../../common/components/MainHeader';
-import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
+import { RouteProp, useFocusEffect, useNavigation, useRoute } from '@react-navigation/native';
 import {
     COLORS,
     FONTS,
@@ -53,7 +54,31 @@ const EmployeeDetails: React.FC<EmployeeDetailsProps> = () => {
     return (
         <SafeAreaView>
             <SubHeader
-                leftIconAction={() => navigation.goBack()}
+                leftIconAction={() => {
+                    // Block going back without the required data, otherwise return with preserved selections
+                    const canReturn =
+                        route.params?.shiftId &&
+                        route.params?.lat !== undefined &&
+                        route.params?.long !== undefined &&
+                        route.params?.item;
+                    if (!canReturn) {
+                        return;
+                    }
+                    navigation.navigate('AttendanceAllEmployee', {
+                        data: {
+                            shiftId: route.params?.shiftId,
+                        },
+                        projectID: (route.params as any)?.projectID,
+                        siteId: (route.params as any)?.siteId,
+                        projectLabel: (route.params as any)?.projectLabel,
+                        siteLabel: (route.params as any)?.siteLabel,
+                        shiftLabel: (route.params as any)?.shiftLabel,
+                        updatedEmployee: {
+                            employeeId: route.params?.item?.employeeId,
+                            status: status,
+                        },
+                    } as any);
+                }}
                 leftIcon={I18nManager.isRTL ? icons?.rightBack : icons?.leftBack} title={t('details')} />
             <DateTimePickerModalView
                 isVisible={isVisibleData}
@@ -88,19 +113,19 @@ const EmployeeDetails: React.FC<EmployeeDetailsProps> = () => {
                 Image={feedBackImg}
                 onDismiss={(val: boolean | ((prevState: boolean) => boolean)) => {
                     setFeedBackModal(val);
-                    navigation.navigate('AttendanceAllEmployee', {
-                        data: {
-                            item: {
-                                image: route.params?.item?.image || 'default_image.jpg',
-                                employeeName: route.params?.item?.employeeName || 'Unknown',
-                                employeeId: route.params?.item?.employeeId || '000',
-                            },
-                            isEnterLeaveSetting: route.params?.isEnterLeaveSetting ?? false,
-                            shiftId: route.params?.shiftId ?? '',
-                            lat: route.params?.lat ?? 0,
-                            long: route.params?.long ?? 0
-                        }
-                    });
+                    // navigation.navigate('AttendanceAllEmployee', {
+                    //     data: {
+                    //         item: {
+                    //             image: route.params?.item?.image || 'default_image.jpg',
+                    //             employeeName: route.params?.item?.employeeName || 'Unknown',
+                    //             employeeId: route.params?.item?.employeeId || '000',
+                    //         },
+                    //         isEnterLeaveSetting: route.params?.isEnterLeaveSetting ?? false,
+                    //         shiftId: route.params?.shiftId ?? '',
+                    //         lat: route.params?.lat ?? 0,
+                    //         long: route.params?.long ?? 0
+                    //     }
+                    // });
                 }}
             />
             <ScrollView>

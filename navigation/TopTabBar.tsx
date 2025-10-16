@@ -26,7 +26,7 @@ const TopTabBar: React.FC <any>= ({route , navigation}) => {
 
 
   return (
-    <SafeAreaView style={{ flex: 1, }}>
+    <SafeAreaView style={{ flex: 1,}}>
       {/* <StatusBar barStyle="dark-content" backgroundColor="white" /> */}
       <MainHeader title={t('home')}  labelStyle={{
                 writingDirection: I18nManager.isRTL ? 'rtl' : 'ltr',

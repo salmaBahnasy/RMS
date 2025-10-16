@@ -92,7 +92,9 @@ const Tabs: React.FC = () => {
                 tabBarIcon: ({ focused }) => renderIcon(getIcon(route.name, focused), focused),
                  tabBarLabel: ({ focused }) => (
                     <>
-                        <Text style={[styles.txt, { color: focused ? COLORS.primary : COLORS.offWhite }]}>
+                        <Text
+                        numberOfLines={1}
+                        style={[styles.txt, { color: focused ? COLORS.primary : COLORS.offWhite }]}>
                             {t(getLabel(route.name))}
                         </Text>
                         {focused && dot()}
@@ -121,7 +123,7 @@ const styles = StyleSheet.create<{
 }>({
 
     txt: {
-        ...FONTS.body5,
+        ...FONTS.body6,
         textTransform: 'capitalize',
         flexShrink: 1,
         alignSelf: "center",

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {I18nManager, SafeAreaView} from 'react-native';
+import {I18nManager, View} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import MainHeader from '../common/components/MainHeader';
 import TabView from './Component/TabView';
@@ -29,7 +29,7 @@ const Home: React.FC = () => {
       }}
     />
   ) : (
-    <SafeAreaView style={{flex: 1,}}>
+    <View style={{flex: 1,backgroundColor:"red"}}>
       <FeedBackModal
         isVisible={isVisible}
         onDismiss={(val: boolean | ((prevState: boolean) => boolean)) => {
@@ -51,7 +51,7 @@ const Home: React.FC = () => {
         onSelected={(tab: 'employees' | 'equipment') => setSelectedTab(tab)}
       />
       {selectedTab === 'employees' ? <Employees /> : <Equipment />}
-    </SafeAreaView>
+    </View>
   );
 };
 

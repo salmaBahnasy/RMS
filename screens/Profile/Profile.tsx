@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { I18nManager, View} from 'react-native';
+import { Alert, I18nManager, View} from 'react-native';
 import {CommonActions, useNavigation} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
 import RNRestart from 'react-native-restart';
@@ -23,7 +23,7 @@ const Profile: React.FC = () => {
   const [languageModal, setLanguageModal] = useState(false);
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{flex:1}}>
       <LanguageModal
         onDismiss={val => {
           setLanguageModal(val);
@@ -33,12 +33,9 @@ const Profile: React.FC = () => {
           // ✅ حفظ اللغة المختارة
           await AsyncStorage.setItem(LANGUAGE_KEY, val);
           console.log('LANGUAGE_KEY', val);
-
           // ✅ تغيير اللغة في i18n
           await changeLanguage(val, i18n);
-
           setLanguageModal(false);
-
           // ✅ إعادة تشغيل التطبيق لتطبيق اتجاه اللغة
           RNRestart.Restart();
         }}
@@ -53,7 +50,7 @@ const Profile: React.FC = () => {
         style={{
           paddingVertical: 20,
           paddingHorizontal: 8,
-          height: SIZES.height - 180,
+          flex: 1,
         }}>
         <OptionsView
           onPress={() => navigation.navigate('PersonalData')}

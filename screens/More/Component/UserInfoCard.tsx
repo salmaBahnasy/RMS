@@ -17,12 +17,14 @@ import { COLORS, icons, images, FONTS } from '../../../constants';
 import { ProfileScreenNavigationProp } from '../../../navigation/types';
 import { getDataEmpDetails } from '../../Profile/Services/services';
 import Loader from '../../common/components/Loader';
+import { BaseURL } from '../../../constants/BaseUrl';
 
 const UserInfoCard: React.FC = () => {
   const navigation = useNavigation<ProfileScreenNavigationProp>();
   const { t, i18n } = useTranslation();
   const [employeeName, setEmployeeName] = useState<string>('');
   const [isloading, setisloading] = useState<boolean>(true);
+  const [employeephoto, setEmployeephoto] = useState<any>();
 
   useEffect(() => {
     const fetchName = async () => {
@@ -33,6 +35,7 @@ const UserInfoCard: React.FC = () => {
         if (result) {
           const name = i18n.language === 'ar' ? result.nameAr : result.nameEn;
           setEmployeeName(name);
+          setEmployeephoto(result?.photo)
           setisloading(false)
         }
       } catch (err) {
@@ -51,7 +54,7 @@ const UserInfoCard: React.FC = () => {
       onPress={() => navigation.navigate('Profile')}
       style={styles.container}
     >
-      <Image source={images.userImage} style={{ width: 40, height: 40 }} />
+      <Image source={{uri:`${BaseURL}/${employeephoto}`}} style={{ width: 40, height: 40 ,borderRadius:20,resizeMode:'stretch'}} />
       <View style={{ flex: 1, paddingHorizontal: 16 }}>
         <Text style={FONTS.h4 as StyleProp<TextStyle>}>
           {employeeName || t('unknown_user')}

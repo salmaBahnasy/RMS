@@ -61,15 +61,20 @@ const VacationApprovalRequest: React.FC = () => {
   }, [selectedType, allRequests]);
 
   const getRequests = async (page = 1) => {
+    console.log(pageLoading,hasMore)
     if (pageLoading || !hasMore) return;
     setPageLoading(true);
     try {
+      console.log("try again")
       const resList = await getAllVacationRequests(page);
       if (resList.length === 0) {
         setHasMore(false);
+        setLoading(false)
       } else {
+        console.log(resList)
         setAllRequests(prev => [...prev, ...resList]);
         setPageNumber(prev => prev + 1);
+        setLoading(false)
       }
     } catch (error) {
       console.error(error);
@@ -168,7 +173,7 @@ const VacationApprovalRequest: React.FC = () => {
       <SubHeader
         leftIconAction={() => navigation.goBack()}
         leftIcon={I18nManager.isRTL ? icons.rightBack : icons.leftBack}
-        title={t('approveRejectWorkerRequest')}
+        title={t('vacationRequest')}
       />
       <FeedBackModal
         isVisible={feedbackModal}
@@ -176,8 +181,11 @@ const VacationApprovalRequest: React.FC = () => {
         Image={feedbackBackImg}
         onDismiss={(val: boolean) => {
           setFeedBackModal(val);
+          console.log(val)
 
           if (!val) {
+            console.log(val)
+
             // إعادة تهيئة البيانات
             setAllRequests([]);
             setHasMore(true);
@@ -209,18 +217,22 @@ const VacationApprovalRequest: React.FC = () => {
                 {statusName(item.approvalStatusId)}
               </View>
               <Text style={{...FONTS.body5} as TextStyle}>
-                {I18nManager.isRTL ? item.employeeNameAr : item.employeeNameEn}
+                {I18nManager.isRTL ? item.employeeName : item.employeeNameEn}
+              </Text>
+            
+              <Text style={{...FONTS.body5} as TextStyle}>
+                {t('vacationType')}:{' '}
+                {item.empContractVacationName ?? item.empContractVacationName}
               </Text>
               <Text style={{...FONTS.body5} as TextStyle}>
-                {t('date')}: {moment(item.date).format('YYYY-MM-DD')}
+                {t('startvdate')}{" "}:{" "}{moment(item.startDate).format('DD-MM-YYYY')}
               </Text>
               <Text style={{...FONTS.body5} as TextStyle}>
-                {t('CurrentTeamAndProject')}:{' '}
-                {item.currentTeamAndProject ?? item.CurrentTeamAndProject}
+                {t('endvdate')}{" "}:{' '}{moment(item.endDate).format('DD-MM-YYYY')}
               </Text>
               <Text style={{...FONTS.body5} as TextStyle}>
-                {t('NewTeamAndProject')}:{' '}
-                {item.newTeamAndProject ?? item.NewTeamAndProject}
+                {t('vduration')}:{' '}
+                {item.vacationDuration ?? item.vacationDuration}
               </Text>
 
               {item?.note ? (
@@ -245,15 +257,20 @@ const VacationApprovalRequest: React.FC = () => {
                   let sendToApproval = await approveVacEmp(data)
                   console.log("sendToApproval", sendToApproval)
                   if (sendToApproval?.success == true) {
+                    setHasMore(true);
+
                     setFeedBackModal(true)
                     setFeedBackImg(images?.success)
                     setFeedBackTitle(`${t('sendforapprove')}\n${item?.empContractVacationName} \n ${t('from')} ${moment(item.startDate).format(dateNumber)} ${t('to')} ${moment(item.endDate).format(dateNumber)}`)
                   } else {
+                    setHasMore(true);
+
                     setFeedBackModal(true)
                     setFeedBackImg(images?.fail)
                     setFeedBackTitle(sendToApproval?.error?.message || t('somethingerror'))
                   }
                 }}
+                label={t('sendforapprove')}
                 />
               ) : null}
             </View>

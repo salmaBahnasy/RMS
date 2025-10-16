@@ -106,6 +106,9 @@ const VacationHistory: React.FC<VacationHistoryProps> = () => {
         />
         <TouchableOpacity
           onPress={async () => {
+            // Prevent the date picker from being visible when searching
+            setDateShowModal(false);
+            setisVisible(false);
             const filteredData = await searchInAllRequestes(EmpId, startDate?.toISOString(), endDate?.toISOString(), 1, 10);
             console.log({ filteredData })
             Array.isArray(filteredData?.result?.returnData?.vacations) ? setvacationList(filteredData?.result?.returnData?.vacations) : setvacationList([])
@@ -134,11 +137,11 @@ const VacationHistory: React.FC<VacationHistoryProps> = () => {
   }
   const VacationGridView = (data: any) => {
     const renderItem = ({ item, index }: { item: VacationItem, index: number }) => {
-      return (<View style={{ backgroundColor: COLORS?.white, borderRadius: 10, padding: 8, flex: 1, marginHorizontal: 8, marginVertical: 4,height:SIZES?.height/3-60 }}>
-        <Text style={{
+      return (<View style={{ backgroundColor: COLORS?.white, borderRadius: 10, padding: 8, flex: 1, marginHorizontal: 8, marginVertical: 4 }}>
+        {/* <Text style={{
           ...FONTS?.body4, textTransform: 'capitalize', marginVertical: 2,
           backgroundColor: COLORS?.Warningbg, color: COLORS?.Warningtxt, alignSelf: 'flex-end'
-        } as TextStyle}>{item?.statusName}</Text>
+        } as TextStyle}>{item?.statusName}</Text> */}
 
         <Text style={{ ...FONTS?.h3, textTransform: 'capitalize', marginVertical: 2, } as TextStyle}>{item?.empContractVacationName}</Text>
         <Text style={{ ...FONTS?.h4, textTransform: 'capitalize', marginVertical: 2, } as TextStyle}>{t('startDate')} : {moment(item.startDate).format(dateNumber)}</Text>
@@ -195,7 +198,11 @@ const VacationHistory: React.FC<VacationHistoryProps> = () => {
     <SafeAreaView>
       <DateTimePickerModalView
         isVisible={isVisible}
-        onDismiss={(val: boolean | ((prevState: boolean) => boolean)) => { setisVisible(val); }}
+        onDismiss={(val: boolean | ((prevState: boolean) => boolean)) => {
+          // Ensure both flags are turned off on cancel/dismiss
+          setisVisible(false);
+          setDateShowModal(false);
+        }}
         dateValue={dateType === 'start' ? startDate : endDate}
         show={dateShowModal}
         selectedDate={(val: Date) => {

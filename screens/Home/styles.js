@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     },
     listViewStyle:{
         padding:8,
-        margin:14, 
+        marginHorizontal:14,
         flex: 1,
         // backgroundColor: 'red'
     },

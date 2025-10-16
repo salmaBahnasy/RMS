@@ -220,7 +220,7 @@ const ProfileTabs: React.FC<ProfileTabsProps> = props => {
           title={
             employeeDataByEmpId?.city?.id !== 2
               ? t('passport_residence')
-              : 'الهوية'
+              : t('identity')
           }
           selected="passport_residence"
         />

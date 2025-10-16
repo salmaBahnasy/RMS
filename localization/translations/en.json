@@ -8,7 +8,7 @@
   "login": "Login",
   "daysWithoutFingerprint": "Days without fingerprint",
   "attendanceAndLeave": "Attendance and Leave",
-  "approveRejectWorkerRequest": "Transfer Worker Requests",
+  "approveRejectWorkerRequest": "Transfer Worker",
   "employeeReports": "Employee Reports",
   "employeeSearch": "Employee Search",
   "workerRequest": "Worker Request",
@@ -60,7 +60,7 @@
   "driver": "Driver",
   "equipment_search": "Equipment Search",
   "equipment_request": "Equipment Request",
-  "accept_reject_equipment_request": "Accept/Reject Equipment Request",
+  "accept_reject_equipment_request": "All Equipment Request",
   "equipment_reports": "Equipment Reports",
   "equipment_preparation": "Equipment Preparation",
   "report_malfunction": "Report Malfunction",
@@ -438,7 +438,12 @@
   "pending": "Pending",
    "equipmentSearch": "Equipment Search",
    "noEquipmentFound":"no Equipment Found",
-   "vacationRequest":"Vacation Request"
+   "vacationRequest":"Vacation Request",
+   "noAttachment":"No Attachment"
+   ,"identity":"Identity"
+   ,"nationalId":"National ID"
+   ,"nationalAddress":"National Address"
+   ,"expiryDate":"Expiry Date"
 
 
 

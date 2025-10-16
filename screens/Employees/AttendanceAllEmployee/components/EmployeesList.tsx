@@ -38,6 +38,11 @@ interface EmployeesListProps {
   shiftId?: string|any;
   lat?:string |number;
   long?:string |number;
+  projectID?: string;
+  siteId?: string;
+  projectLabel?: string;
+  siteLabel?: string;
+  shiftLabel?: string;
   toggleSelection: (id: string) => void;
   toggleSelectAll: () => void;
   recordAttendance: (status: string | number |any) => void | Promise<void>;
@@ -152,6 +157,11 @@ const EmployeesList: React.FC<EmployeesListProps> = props => {
             shiftId: props.shiftId,
             lat: props.lat,
             long: props.long,
+            projectID: props.projectID,
+            siteId: props.siteId,
+            projectLabel: props.projectLabel,
+            siteLabel: props.siteLabel,
+            shiftLabel: props.shiftLabel,
           });
         }}>
         <Image source={icons.moreActions} style={{ width: 28, height: 28 }} />

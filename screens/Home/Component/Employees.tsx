@@ -9,9 +9,8 @@ import {
   StyleProp,
   ViewStyle,
 } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, NavigationProp } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
-import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../../navigation/types'; // Define this type based on your navigation structure
 // ............................................
 import styles from '../styles';
@@ -21,7 +20,7 @@ import { employeesList } from '../../common/Constants';
 interface EmployeeItem {
   label: string;
   image: ImageSourcePropType;
-  onPress: keyof RootStackParamList; // Ensure this is a valid key of RootStackParamList
+  onPress: any; // Relaxed typing to allow routes with/without params
 }
 
 // Define the type for the component's props
@@ -30,14 +29,13 @@ interface EmployeesProps {
 }
 
 const Employees: React.FC<EmployeesProps> = (props) => {
-  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
   const { t } = useTranslation();
 
   // Render function for each item in the FlatList
   const renderItem = ({ item, index }: { item: EmployeeItem; index: number }) => {
     return (
       <TouchableOpacity
-        key={index}
         onPress={() => navigation.navigate(item?.onPress)}
         style={styles.optionItem}
       >
@@ -54,8 +52,9 @@ const Employees: React.FC<EmployeesProps> = (props) => {
         extraData={employeesList}
         renderItem={renderItem}
         numColumns={2}
+        contentContainerStyle={{ flexGrow: 1, paddingBottom: 0 }}
+        showsVerticalScrollIndicator={false}
       />
-      <View style={{marginTop: 12}}/>
     </View>
   );
 };

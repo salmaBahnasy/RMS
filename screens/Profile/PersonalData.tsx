@@ -271,12 +271,12 @@ const PersonalData: React.FC = () => {
               operationCardExpiry={
                 employeeDataByEmpId?.cardWorkExpiryDate
                   ? formatDate(employeeDataByEmpId?.cardWorkExpiryDate)
-                  : 'لايوجد بيانات'
+                 : t('noData')
               }
               operationCardAttachment={
                 employeeDataByEmpId?.cardWorkPic
                   ? employeeDataByEmpId.cardWorkPic.split('/').pop()
-                  : 'لايوجد مرفق'
+                 : t('noAttachment')
               }
             />
             <ResidenceInformation
@@ -289,7 +289,7 @@ const PersonalData: React.FC = () => {
               employeeAffiliatedAuthority={
                 employeeDataByEmpId?.empCouncils?.[0]?.council?.name
                   ? employeeDataByEmpId?.empCouncils?.[0]?.council?.name
-                  : 'لايوجد بيانات'
+                 : t('noData')
               }
               membershipExpiryGregorian={
                 employeeDataByEmpId?.empCouncils?.[0]?.memberShipExpiryDate
@@ -297,7 +297,7 @@ const PersonalData: React.FC = () => {
                       employeeDataByEmpId?.empCouncils?.[0]
                         ?.memberShipExpiryDate,
                     )
-                  : 'لايوجد بيانات'
+                 : t('noData')
               }
             />
 
