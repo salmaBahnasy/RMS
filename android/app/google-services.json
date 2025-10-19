@@ -1,21 +1,40 @@
 {
   "project_info": {
-    "project_number": "712153138545",
-    "project_id": "aldawal-rms",
-    "storage_bucket": "aldawal-rms.firebasestorage.app"
+    "project_number": "161020904031",
+    "project_id": "labbaytaldawal",
+    "storage_bucket": "labbaytaldawal.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:712153138545:android:a0e8fa8a6482e8d6f022d0",
+        "mobilesdk_app_id": "1:161020904031:android:0c0fcedb58024d0cdb91ea",
         "android_client_info": {
-          "package_name": "com.aldawal.hrms"
+          "package_name": "com.labbaytAldawal"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCsEawTGo935TDjV4jU8Q-vwjtICbXau0g"
+          "current_key": "AIzaSyCYbxbvTO0Cq6hpUc4oKEQmdF7djcuxSns"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:161020904031:android:7fdbac2f654b47a7db91ea",
+        "android_client_info": {
+          "package_name": "com.labbaytaldawal"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYbxbvTO0Cq6hpUc4oKEQmdF7djcuxSns"
         }
       ],
       "services": {

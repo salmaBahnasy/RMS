@@ -12,19 +12,19 @@
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		BD43232F2CDB8A54006BC03C /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
 		CE2B68CC2E9BD6E200533B70 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE2B68CB2E9BD6E200533B70 /* GoogleService-Info.plist */; };
-		EAF12E16D61F3E4AD38C9356 /* libPods-HRMS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD53C90D3E4FFB2D22C5287 /* libPods-HRMS.a */; };
+		EAF12E16D61F3E4AD38C9356 /* libPods-AldawalRMS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD53C90D3E4FFB2D22C5287 /* libPods-AldawalRMS.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		13B07F961A680F5B00A75B9A /* HRMS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HRMS.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = HRMS/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = HRMS/Info.plist; sourceTree = "<group>"; };
-		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = HRMS/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		16D19AC8446E2773D88DAB16 /* Pods-HRMS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HRMS.debug.xcconfig"; path = "Target Support Files/Pods-HRMS/Pods-HRMS.debug.xcconfig"; sourceTree = "<group>"; };
-		3633F6BCA83B93C8A00953DF /* Pods-HRMS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HRMS.release.xcconfig"; path = "Target Support Files/Pods-HRMS/Pods-HRMS.release.xcconfig"; sourceTree = "<group>"; };
-		6AD53C90D3E4FFB2D22C5287 /* libPods-HRMS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HRMS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = HRMS/AppDelegate.swift; sourceTree = "<group>"; };
-		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = HRMS/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* AldawalRMS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AldawalRMS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "AldawalRMS/Images.xcassets"; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "AldawalRMS/Info.plist"; sourceTree = "<group>"; };
+		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = AldawalRMS/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		16D19AC8446E2773D88DAB16 /* Pods-AldawalRMS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AldawalRMS.debug.xcconfig"; path = "Target Support Files/Pods-AldawalRMS/Pods-AldawalRMS.debug.xcconfig"; sourceTree = "<group>"; };
+		3633F6BCA83B93C8A00953DF /* Pods-AldawalRMS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AldawalRMS.release.xcconfig"; path = "Target Support Files/Pods-AldawalRMS/Pods-AldawalRMS.release.xcconfig"; sourceTree = "<group>"; };
+		6AD53C90D3E4FFB2D22C5287 /* libPods-AldawalRMS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AldawalRMS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = AldawalRMS/AppDelegate.swift; sourceTree = "<group>"; };
+		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = "AldawalRMS/LaunchScreen.storyboard"; sourceTree = "<group>"; };
 		CE2B68CB2E9BD6E200533B70 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -34,14 +34,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EAF12E16D61F3E4AD38C9356 /* libPods-HRMS.a in Frameworks */,
+				EAF12E16D61F3E4AD38C9356 /* libPods-AldawalRMS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		13B07FAE1A68108700A75B9A /* HRMS */ = {
+		13B07FAE1A68108700A75B9A /* AldawalRMS */ = {
 			isa = PBXGroup;
 			children = (
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -50,14 +50,14 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
 			);
-			name = HRMS;
+			name = "AldawalRMS";
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				6AD53C90D3E4FFB2D22C5287 /* libPods-HRMS.a */,
+				6AD53C90D3E4FFB2D22C5287 /* libPods-AldawalRMS.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -73,7 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				CE2B68CB2E9BD6E200533B70 /* GoogleService-Info.plist */,
-				13B07FAE1A68108700A75B9A /* HRMS */,
+				13B07FAE1A68108700A75B9A /* AldawalRMS */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
@@ -87,7 +87,7 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* HRMS.app */,
+				13B07F961A680F5B00A75B9A /* AldawalRMS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,8 +95,8 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				16D19AC8446E2773D88DAB16 /* Pods-HRMS.debug.xcconfig */,
-				3633F6BCA83B93C8A00953DF /* Pods-HRMS.release.xcconfig */,
+				16D19AC8446E2773D88DAB16 /* Pods-AldawalRMS.debug.xcconfig */,
+				3633F6BCA83B93C8A00953DF /* Pods-AldawalRMS.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -104,9 +104,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		13B07F861A680F5B00A75B9A /* HRMS */ = {
+		13B07F861A680F5B00A75B9A /* AldawalRMS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "HRMS" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "AldawalRMS" */;
 			buildPhases = (
 				86C6B2EAC73B3F1E6AD561A9 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
@@ -121,9 +121,9 @@
 			);
 			dependencies = (
 			);
-			name = HRMS;
-			productName = HRMS;
-			productReference = 13B07F961A680F5B00A75B9A /* HRMS.app */;
+			name = "AldawalRMS";
+			productName = "AldawalRMS";
+			productReference = 13B07F961A680F5B00A75B9A /* AldawalRMS.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -139,7 +139,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "HRMS" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "AldawalRMS" */;
 			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -152,7 +152,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* HRMS */,
+				13B07F861A680F5B00A75B9A /* AldawalRMS */,
 			);
 		};
 /* End PBXProject section */
@@ -194,19 +194,19 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HRMS/Pods-HRMS-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-AldawalRMS/Pods-AldawalRMS-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			inputPaths = (
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HRMS/Pods-HRMS-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-AldawalRMS/Pods-AldawalRMS-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HRMS/Pods-HRMS-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AldawalRMS/Pods-AldawalRMS-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		839EA1CFEA5496271F1D30AB /* [CP-User] [RNFB] Core Configuration */ = {
@@ -239,7 +239,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-HRMS-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-AldawalRMS-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -252,19 +252,19 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HRMS/Pods-HRMS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-AldawalRMS/Pods-AldawalRMS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			inputPaths = (
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HRMS/Pods-HRMS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-AldawalRMS/Pods-AldawalRMS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HRMS/Pods-HRMS-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AldawalRMS/Pods-AldawalRMS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -283,15 +283,15 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 16D19AC8446E2773D88DAB16 /* Pods-HRMS.debug.xcconfig */;
+			baseConfigurationReference = 16D19AC8446E2773D88DAB16 /* Pods-AldawalRMS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 53RUVFN4VX;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = HRMS/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Aldawal RMS";
+				INFOPLIST_FILE = "AldawalRMS/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "AldawalRMS";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -303,8 +303,8 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.aldawal.aldawallabbayt;
-				PRODUCT_NAME = HRMS;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.labbaytAldawal";
+				PRODUCT_NAME = "AldawalRMS";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -313,14 +313,14 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3633F6BCA83B93C8A00953DF /* Pods-HRMS.release.xcconfig */;
+			baseConfigurationReference = 3633F6BCA83B93C8A00953DF /* Pods-AldawalRMS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 53RUVFN4VX;
-				INFOPLIST_FILE = HRMS/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Aldawal RMS";
+				INFOPLIST_FILE = "AldawalRMS/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "AldawalRMS";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -332,8 +332,8 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.aldawal.aldawallabbayt;
-				PRODUCT_NAME = HRMS;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.labbaytAldawal";
+				PRODUCT_NAME = "AldawalRMS";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -486,7 +486,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "HRMS" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "AldawalRMS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -495,7 +495,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "HRMS" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "AldawalRMS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
