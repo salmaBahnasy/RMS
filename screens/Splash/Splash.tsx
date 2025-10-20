@@ -76,19 +76,37 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ navigation }) => {
   }, [slideAnim]);
 
   const biometric = async (): Promise<boolean> => {
-    const result = await biometricAuth();
-    console.log('Biometric result...', result);
+    try {
+      const result = await biometricAuth();
+      console.log('Biometric result...', result);
 
-    if (result === 'successful biometrics provided') {
-      return true;
+      if (result === 'successful biometrics provided') {
+        return true;
+      }
+
+      if (result === 'Biometrics not supported') {
+        return true; // ✅ الجهاز مش بيدعمها → هيدخل لو التوكن صالح
+      }
+
+      if (result === 'user cancelled biometric prompt') {
+        Alert.alert('تم الإلغاء', 'تم إلغاء التحقق بالبصمة.');
+        return false;
+      }
+
+      if (result === 'biometrics failed') {
+        Alert.alert('خطأ', 'فشل التحقق بالبصمة.');
+        return false;
+      }
+
+      // Handle any unexpected result
+      console.warn('Unexpected biometric result:', result);
+      Alert.alert('خطأ', 'حدث خطأ غير متوقع في التحقق بالبصمة.');
+      return false;
+    } catch (error) {
+      console.error('Error in biometric function:', error);
+      Alert.alert('خطأ', 'حدث خطأ في التحقق بالبصمة.');
+      return false;
     }
-
-    if (result === 'Biometrics not supported') {
-      return true; // ✅ الجهاز مش بيدعمها → هيدخل لو التوكن صالح
-    }
-
-    Alert.alert('خطأ', 'فشل التحقق بالبصمة.');
-    return false;
   };
 
 // const setAppDirection = async () => {
@@ -179,6 +197,7 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ navigation }) => {
       const isBioEnabled = await AsyncStorage.getItem('useAuth');
       if (isBioEnabled === 'true') {
         const bioSuccess = await biometric();
+        console.log("bioSuccess",bioSuccess)
         if (bioSuccess) {
           console.log('✅ توكن صالح والبصمة تمام → Home');
           navigation.replace('Home');

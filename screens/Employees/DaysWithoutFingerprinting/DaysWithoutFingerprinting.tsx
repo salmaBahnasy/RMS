@@ -356,7 +356,7 @@ const DaysWithoutFingerprinting: React.FC = () => {
           <View
             style={[
               styles.missingDayDetailsItem,
-              {borderBottomWidth: 0, paddingBottom: 0},
+              {borderBottomWidth:   !item.hasRequest? 1:0, paddingBottom: 0},
             ]}>
             <Text style={styles.missingDayDetailsLabel}>{t('shift')} :</Text>
             <Text style={styles.missingDayDetailsValue}>{item?.shiftName}</Text>
@@ -388,7 +388,9 @@ const DaysWithoutFingerprinting: React.FC = () => {
               alignItems: 'center',
               justifyContent: 'center',
             }}>
-            {!item.isApproved &&  (
+            {
+   
+            !item.hasRequest &&  (
               <TouchableOpacity
                 onPress={() => {
                   if (!item.justifiedData) {

@@ -196,7 +196,7 @@ const ReportMalfunction: React.FC = () => {
       teamId: fetchedEquipment?.teamId,
       driverId: fetchedEquipment?.driverId,
       machineTypeId: fetchedEquipment?.machineTypeId,
-      isFixed: true,
+      // isFixed: true,
     };
 
     try {

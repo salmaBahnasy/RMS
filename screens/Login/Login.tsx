@@ -74,20 +74,32 @@ const Login: React.FC = () => {
 
   // ✅ التحقق بالبصمة
   const biometric = async (): Promise<boolean> => {
-    const result = await biometricAuth();
-    console.log('Biometric result...', result);
+    try {
+      const result = await biometricAuth();
+      console.log('Biometric result...', result);
 
-    if (result === true) {
-      return true; // البصمة نجحت
+      // ✅ نجاح التحقق بالبصمة
+      if (result === 'successful biometrics provided' || result === true) {
+        return true;
+      }
+
+      // ✅ الجهاز لا يدعم البصمة أو المستخدم ألغى
+      if (
+        result === 'Biometrics not supported' ||
+        result === 'user cancelled biometric prompt' ||
+        result === false
+      ) {
+        return false; // يسمح له بالدخول بعد التحقق من اليوزر والباسورد
+      }
+
+      // ✅ فشل التحقق بالبصمة
+      Alert.alert('خطأ', 'فشل التحقق بالبصمة. حاول مرة أخرى.');
+      return false;
+    } catch (e) {
+      console.log('Biometric error...', e);
+      Alert.alert('خطأ', 'حدث خطأ غير متوقع في التحقق بالبصمة.');
+      return false;
     }
-
-    if (result ===false) {
-
-      return false; // الجهاز مش بيدعم البصمة → يسمح له بالدخول بعد التحقق من اليوزر والباسورد
-    }
-
-    Alert.alert('خطأ', 'فشل التحقق بالبصمة. حاول مرة أخرى.');
-    return false; // البصمة موجودة وفشلت → لا يدخل
   };
 
   // ✅ تسجيل الدخول
@@ -147,6 +159,7 @@ const Login: React.FC = () => {
         );
         console.log('loginResponse.result.userId', loginResponse.result.userId);
         console.log('loginResponse.result.empId', loginResponse.result.empId);
+
         await saveFingerPrintApi(loginResponse.result.empId);
           console.log('loginResponse.result.empId',loginResponse.result.empId)
         setEmail('');

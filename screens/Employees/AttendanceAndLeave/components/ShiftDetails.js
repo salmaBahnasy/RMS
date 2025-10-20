@@ -208,13 +208,13 @@ const ShiftDetails = props => {
     if (recordShiftAttendances?.success == true) {
       setfeedbackDescription(
         recordShiftAttendances?.result?.message?.content ==
-          'This Fingerprint is not compatible.'
+          I18nManager.isRTL?"هذه البصمة غير متوافقة.":'This Fingerprint is not compatible.'
           ? t('Fingerprintnotcompatible')
           : recordShiftAttendances?.result?.message?.content,
       );
       setfeedbackImage(
         recordShiftAttendances?.result?.message?.content ==
-          'This Fingerprint is not compatible.'
+           I18nManager.isRTL?"هذه البصمة غير متوافقة.":'This Fingerprint is not compatible.'
           ? icons?.daysWithoutFingerprint
           : images?.success,
       );
@@ -387,7 +387,7 @@ const ShiftDetails = props => {
                 Biometrics?.code == 'No fingerprints enrolled'
               ) {
                 console.log('Biometrics?.code', Biometrics?.code);
-                setfeedbackDescription('No fingerprints enrolled');
+                setfeedbackDescription(I18nManager.isRTL?'لا يوجد بصمه مسجله':'No fingerprints enrolled');
                 setfeedbackImage(icons?.daysWithoutFingerprint);
                 setFeedBack(true);
               } else {

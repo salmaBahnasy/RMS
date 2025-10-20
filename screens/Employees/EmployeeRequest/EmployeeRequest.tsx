@@ -38,6 +38,7 @@ interface Shift {
 }
 
 interface Employee {
+  empId: any;
   nameAr: any;
   nameEn: any;
   id: number;
@@ -173,7 +174,7 @@ const toggleSelection = (item: Employee) => {
   };
   // .........................................
  function SubmitTransfirRequest(): void {
-  const empIds = selectedEmployee ? [selectedEmployee.id] : []; 
+  const empIds = selectedEmployee ? [selectedEmployee.empId] : []; 
   const shiftIds = shiftId2.map(item => item.id);
 
   if (empIds.length === 0) {

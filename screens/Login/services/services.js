@@ -243,45 +243,33 @@ const commonAction = () => {
 // -------------------------------------------------------------------------------
 const biometricAuth = async () => {
   try {
-    // const {available, biometryType} = await rnBiometrics.isSensorAvailable();
     const { biometryType } = await rnBiometrics.isSensorAvailable();
-    let val = ''
+    
     if (biometryType === BiometryTypes.Biometrics) {
       console.log('Biometrics is supported');
       const result = await authenticate();
-      console.log(result)
-      val = result;
-      return result
+      return result;
     }
+    
     if (biometryType === BiometryTypes.TouchID) {
       console.log('TouchID is supported');
       const result = await authenticate();
-      val = result;
-      return result
-
+      return result;
     }
+    
     if (biometryType === BiometryTypes.FaceID) {
       console.log('FaceID is supported');
       const result = await authenticate();
-      val = result;
-      return result
-
-    } else {
-      console.log('Biometrics not supported');
-      val = 'Biometrics not supported';
-      return false
-
+      return result;
     }
-    if (val != '') {
-      console.log("val",val)
-
-      // return val
-    }
+    
+    // No biometric support
+    console.log('Biometrics not supported');
+    return 'Biometrics not supported';
 
   } catch (error) {
     console.error('Error in biometricAuth:', error);
-    return false;
-
+    return 'Biometrics not supported';
   }
 };
 
@@ -292,19 +280,16 @@ const authenticate = async () => {
     });
     const { success } = resultObject;
     console.log('resultObject', resultObject);
+    
     if (success) {
       console.log('successful biometrics provided');
-      return success;
-      // navigation.navigate('Home')
-      // alert('Authentication successful', 'You have successfully authenticated using biometrics');
+      return 'successful biometrics provided';
     } else {
       console.log('user cancelled biometric prompt');
-      alert(I18nManager?.isRTL?"تم إلغاء المصادقة البيومترية": 'Biometric authentication was cancelled');
       return 'user cancelled biometric prompt';
     }
   } catch (err) {
     console.log('biometrics failed', err);
-    alert(I18nManager.isRTL?"فشل المصادقة": 'Authentication failed');
     return 'biometrics failed';
   }
 };

@@ -132,7 +132,6 @@ const styles = StyleSheet.create({
       } as TextStyle,
       missingDayDetailsItem: {
         flexDirection: 'row',
-        borderBottomWidth: 1,
         borderColor: COLORS?.lightGray,
         paddingVertical: 4,
       },
