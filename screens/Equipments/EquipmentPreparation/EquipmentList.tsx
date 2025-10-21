@@ -52,7 +52,7 @@ const EquipmentsList: React.FC<EquipmentsListProps> = props => {
   const navigation = useNavigation<NavigationProp<any>>();
 
   const renderStatus = (item: Equipment) => {
-    switch (item?.status) {
+    switch (item?. attendanceStatusId) {
       case 1:
         return (
           <View style={styles.StatusView}>

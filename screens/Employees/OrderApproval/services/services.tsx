@@ -20,12 +20,15 @@ const getAllApprovalRequests = async (): Promise<ApprovalRequest[]> => {
     const url = `${BaseURL}${allApproval}?userId=${userId}`;
     console.log('url:', url);
     console.log('userId:', userId);
-
+    const userToken = await AsyncStorage.getItem('userToken');
+    console.log('userToken', userToken);
     const response = await fetch(url, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
         'Accept-Language': I18nManager.isRTL ? 'ar' : 'en',
+        Authorization: `Bearer ${userToken}`,
+
       },
     });
 
@@ -48,6 +51,8 @@ const getAllApprovalDetails = async (apiLink: any, id: any): Promise<any> => {
   try {
     const userData = await AsyncStorage.getItem('userId');
     const userId: number = JSON.parse(userData || '0');
+    const userToken = await AsyncStorage.getItem('userToken');
+
     // const fixedUrl = fixUrl(apiLink);
     // console.log(fixedUrl);
 
@@ -60,6 +65,8 @@ const getAllApprovalDetails = async (apiLink: any, id: any): Promise<any> => {
       headers: {
         'Content-Type': 'application/json',
         'Accept-Language': I18nManager.isRTL ? 'ar' : 'en',
+        Authorization: `Bearer ${userToken}`,
+
       },
     });
 
@@ -78,24 +85,15 @@ const getAllApprovalDetails = async (apiLink: any, id: any): Promise<any> => {
     return null;
   }
 };
-const fixUrl = (url: string) => {
-  if (url.includes('&Id=')) {
-    // لو موجود &Id= بدله بـ ?Id=
-    return url.replace('&Id=', '?Id=');
-  } else if (url.endsWith('GetTransferEmployeeRequestById')) {
-    // لو ينتهي بـ GetTransferEmployeeRequestById بدون أي Id
-    return url + '?Id=';
-  } else {
-    // في أي حالة ثانية خليه كما هو
-    return url;
-  }
-};
+
 
 
 const postApproval = async (excutedProcessID: any, isAccepted: any): Promise<any> => {
   try {
     const userData = await AsyncStorage.getItem('userId');
     const userId: number = JSON.parse(userData || '0');
+    const userToken = await AsyncStorage.getItem('userToken');
+
     let data = {
       "createdBy": userId,
       "excutedProcessID": excutedProcessID,
@@ -110,6 +108,8 @@ const postApproval = async (excutedProcessID: any, isAccepted: any): Promise<any
       headers: {
         'Content-Type': 'application/json',
         'Accept-Language': I18nManager.isRTL ? 'ar' : 'en',
+        Authorization: `Bearer ${userToken}`,
+
       },
       body: JSON.stringify(data)
     });
@@ -134,12 +134,16 @@ const CompleteTansferEmployee = async (id: any): Promise<any> => {
   try {
     const url = `${BaseURL}${completeTansferEmployee}${id}`;
     console.log('CompleteTansferEmployee', url);
+    const userToken = await AsyncStorage.getItem('userToken');
+
 
     const response = await fetch(url, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
         'Accept-Language': I18nManager.isRTL ? 'ar' : 'en',
+        Authorization: `Bearer ${userToken}`,
+
       },
     });
 
@@ -162,12 +166,15 @@ const CompleteTansferTeam = async (id: any): Promise<any> => {
   try {
     const url = `${BaseURL}${completeTansferTeam}${id}`;
     console.log('CompleteTansferTeam', url);
+    const userToken = await AsyncStorage.getItem('userToken');
 
     const response = await fetch(url, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
         'Accept-Language': I18nManager.isRTL ? 'ar' : 'en',
+        Authorization: `Bearer ${userToken}`,
+
       },
     });
 

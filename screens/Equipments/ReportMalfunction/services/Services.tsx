@@ -158,8 +158,8 @@ const getAllMalfunctionTypes = async () => {
 const getAllworkshop = async (malfunctionTypeId:any) => {
   const userToken = await AsyncStorage.getItem('userToken');
   console.log('userToken', userToken);
-  const url = BaseURL + GetMalfunctionworkshop+"?"+malfunctionTypeId;
-  console.log('url', url);
+  const url = BaseURL + GetMalfunctionworkshop+"?malFunctionTypeId="+malfunctionTypeId;
+  console.log('malFunctionTypeId', url);
 
   try {
     const response = await fetch(url, {

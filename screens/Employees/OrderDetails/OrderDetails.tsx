@@ -75,7 +75,6 @@ const OrderDetails = ({ route }: OrderDetailsScreenProps) => {
   }, [])
 
   const getDetails = async () => {
-    console.log("order?.dataURL, order?.recordID", order?.dataURL, order?.recordID)
     const detailsData = await getAllApprovalDetails(order?.dataURL, order?.recordID);
     console.log("detailsData...", detailsData)
     setdetails(Array.isArray(detailsData?.returnData) ? detailsData?.returnData[0] : detailsData?.returnData)

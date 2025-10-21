@@ -334,7 +334,7 @@ const MalfunctionDetailsUI: React.FC = () => {
               </View>
             </View>
           </View>
-          {/* {details?.cycleStatusId == 2 ? */}
+          {details?.cycleStatusId == 2 ?
           <DropDownButton
             dropdownContainer={{
               backgroundColor: COLORS?.white,
@@ -347,7 +347,7 @@ const MalfunctionDetailsUI: React.FC = () => {
             }}
             label={t('workshop')}
           />
-          {/* : null} */}
+          : null} 
           <View style={{ marginTop: 16 }} />
 
 
