@@ -203,7 +203,7 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ navigation }) => {
           navigation.replace('Home');
         } else {
           console.log('❌ biometric → Login');
-          navigation.replace('Home');
+          navigation.replace('Login');
         }
       } else {
         console.log('✅ توكن صالح والبصمة مش مفعلة → Home');
