@@ -356,7 +356,7 @@ const DaysWithoutFingerprinting: React.FC = () => {
           <View
             style={[
               styles.missingDayDetailsItem,
-              {borderBottomWidth:   !item.hasRequest? 1:0, paddingBottom: 0},
+              {borderBottomWidth:1, paddingBottom: 0},
             ]}>
             <Text style={styles.missingDayDetailsLabel}>{t('shift')} :</Text>
             <Text style={styles.missingDayDetailsValue}>{item?.shiftName}</Text>
@@ -388,12 +388,12 @@ const DaysWithoutFingerprinting: React.FC = () => {
               alignItems: 'center',
               justifyContent: 'center',
             }}>
-            {
+            {/* { */}
    
-            !item.hasRequest &&  (
+            {/* // !item.hasRequest &&  ( */}
               <TouchableOpacity
                 onPress={() => {
-                  if (!item.justifiedData) {
+                  if (!item.hasRequest) {
                     // مفيش تبرير → روح اعمل تبرير
                     navigation.navigate('JustificationsForAbsence', {
                       attendanceId: item.attendanceId!,
@@ -422,14 +422,14 @@ const DaysWithoutFingerprinting: React.FC = () => {
                 <Image source={icons?.justifications} />
                 <View style={{paddingHorizontal: 5}} />
                 <Text style={styles.requestForJustification}>
-                  {!item.justifiedData
+                  {!item.hasRequest
                     ? t('requestForJustification') // طلب تبرير
                     : !item.isApproved
                     ? t('sendforApproval') // ارسال اعتماد
                     : t('sentForApproval')}
                 </Text>
               </TouchableOpacity>
-            )}
+            {/* // )} */}
           </View>
         </View>
       );
