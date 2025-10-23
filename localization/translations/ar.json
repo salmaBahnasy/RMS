@@ -450,7 +450,8 @@
   ,"identity":"الهوية"
   ,"nationalId":"رقم الهوية"
   ,"nationalAddress":"العنوان الوطني"
-  ,"expiryDate":"تاريخ الانتهاء"
+  ,"expiryDate":"تاريخ الانتهاء",
+  "sentToWorkshop":"إرسال الي الورشه"
 }
 
 

@@ -78,7 +78,7 @@ const GetEquipmentDetailsByNumberQr = '/api/services/app/Equipment/GetEquipmentD
  const GetAllEquipment = '/api/services/app/Equipment/GetAllEquipment';
  const EquipmentTransferRequest = '/api/services/app/Equipment/EquipmentTransferRequest';
  const GetAllEquipmentForAttendance = "/api/services/app/EquipmentAttendance/GetAllEquipmentForAttendance";
- const GetMalfunctionworkshop = "/api/services/app/Malfunction/GetWorkshopByMalfunction";
+ const GetMalfunctionworkshop = "/api/services/app/Workshop/GetWorkshopByMalfunctionTypeId";
 
  const EquipmentFixedRequest="/api/services/app/Malfunction/UpdateEquipmentCycleStatus";
  const vacationRequests='/api/services/app/EmpVacation/GetAllVacationsPaged'

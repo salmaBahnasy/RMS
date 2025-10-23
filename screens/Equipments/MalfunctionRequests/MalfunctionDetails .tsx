@@ -48,7 +48,7 @@ const MalfunctionDetailsUI: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [workshops, setworkshops] = useState([])
   const [isVisible, setIsVisible] = useState(false)
-  const [workshopsid, setworkshopsid] = useState(false)
+  const [workshopsid, setworkshopsid] = useState(null)
   const [workshopsname, setworkshopsname] = useState(false)
   const [attachmentuploadedUri, setAttachmentuploadedUri] = useState<string>('');
   const [showCameraModal, setShowCameraModal] = useState(false);
@@ -139,10 +139,10 @@ const MalfunctionDetailsUI: React.FC = () => {
   //   }
   // };
 
-  const handleFixed = async () => {
+  const handleFixed = async (statusId:any) => {
     try {
       let data={
-        statusId:details.id,
+        statusId:1,//details.cycleStatusId,
         note:faultDetails,
         malfunctionId:details.equipmentNumber,
         workshopId:workshopsid
@@ -396,13 +396,26 @@ const MalfunctionDetailsUI: React.FC = () => {
 
           {/* زر الإصلاح */}
           <View style={{ marginTop: 30 }} />
-          {!isFixed && (
+          {!isFixed && (details?.cycleStatusId == 2|| details?.cycleStatusId == 2)&& (
             <MainButton
               label={t('faultRepaired')}
-              onPress={handleFixed}
+              onPress={()=>handleFixed(1)}
               disabled={buttonLoading}
             />
           )}
+          {!isFixed && details?.cycleStatusId == 2&& <MainButton
+              label={t('sentToWorkshop')}
+              onPress={()=>handleFixed(3)}
+              disabled={buttonLoading}
+              containerStyle={{
+                backgroundColor:"transparent",
+                borderColor:COLORS?.primary,
+                borderWidth:1,
+                marginTop:20
+              }}
+              labelStyle={{color:COLORS?.primary}}
+
+            />}
         </ScrollView>
       )}
     </SafeAreaView>
